@@ -22,6 +22,9 @@ public final class SimpleMaterialDialog {
     private int mAnimationResId = -111;
     private String mAnimationFile = null;
 
+    public static final int BUTTON_POSITIVE = 1;
+    public static final int BUTTON_NEGATIVE = -1;
+
     private SimpleMaterialDialog(Activity mActivity, String title, String message, boolean mCancelable, DialogButton mPositiveButton, DialogButton mNegativeButton, int mAnimationResId, String mAnimationFile) {
         this.mActivity = mActivity;
         this.title = title;
@@ -81,7 +84,7 @@ public final class SimpleMaterialDialog {
             mPositiveButtonView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mPositiveButton.getOnClickListener().onClick(mDialog, Dialog.BUTTON_POSITIVE);
+                    mPositiveButton.getOnClickListener().onClick(mDialog, BUTTON_POSITIVE);
                 }
             });
         } else {
@@ -99,7 +102,7 @@ public final class SimpleMaterialDialog {
             mNegativeButtonView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mNegativeButton.getOnClickListener().onClick(mDialog, Dialog.BUTTON_NEGATIVE);
+                    mNegativeButton.getOnClickListener().onClick(mDialog, BUTTON_NEGATIVE);
                 }
             });
         } else {

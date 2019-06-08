@@ -1,10 +1,8 @@
 package com.shreyaspatil.MaterialDialogExample;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.shreyaspatil.MaterialDialog.SimpleMaterialDialog;
@@ -30,5 +28,6 @@ public class MainActivity extends AppCompatActivity {
                 .setAnimation("plane.json")
                 .build();
         dialog.show();
+
     }
 }

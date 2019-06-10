@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:padding="16dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
@@ -16,7 +16,7 @@
             android:id="@+id/button_simple_dialog"
             android:layout_marginTop="16dp"
             android:textAllCaps="false"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Simple Material Dialog" />
@@ -25,7 +25,7 @@
             android:id="@+id/button_simple_bottomsheet_dialog"
             android:layout_marginTop="16dp"
             android:textAllCaps="false"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Simple Bottomsheet Material Dialog" />
@@ -34,7 +34,7 @@
             android:id="@+id/button_animated_dialog"
             android:layout_marginTop="16dp"
             android:textAllCaps="false"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Animated Material Dialog" />
@@ -43,7 +43,7 @@
             android:id="@+id/button_animated_bottomsheet_dialog"
             android:layout_marginTop="16dp"
             android:textAllCaps="false"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Animated Bottomsheet Material Dialog" />

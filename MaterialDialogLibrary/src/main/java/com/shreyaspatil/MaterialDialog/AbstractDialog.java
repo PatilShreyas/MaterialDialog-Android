@@ -19,10 +19,13 @@ import com.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
 public class AbstractDialog implements DialogInterface {
+
+    //Constants
     public static final int BUTTON_POSITIVE = 1;
     public static final int BUTTON_NEGATIVE = -1;
     public static final int NO_ICON = -111;
     public static final int NO_ANIMATION = -111;
+
     protected Dialog mDialog;
     protected Activity mActivity;
     protected String title;
@@ -32,6 +35,7 @@ public class AbstractDialog implements DialogInterface {
     protected DialogButton mNegativeButton;
     protected int mAnimationResId;
     protected String mAnimationFile;
+
     protected OnDismissListener mOnDismissListener;
     protected OnCancelListener mOnCancelListener;
     protected OnShowListener mOnShowListener;

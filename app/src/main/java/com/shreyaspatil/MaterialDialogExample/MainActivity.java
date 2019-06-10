@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle("Exit?")
                 .setMessage("Are you sure want to exit?\nThis will quit dialog")
                 .setCancelable(false)
-                .setPositiveButton("OK", R.drawable.ic_check, new SimpleMaterialDialog.OnClickListener() {
+                .setPositiveButton("OK", new SimpleMaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();
@@ -36,9 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
         final BottomSheetMaterialDialog sheetDialog = new BottomSheetMaterialDialog.Builder(this)
                 .setTitle("Exit?")
-                .setCancelable(true)
+                .setCancelable(false)
                 .setMessage("Are you sure want to exit?\nThis will quit dialog")
-                .setPositiveButton("OK", R.drawable.ic_check, new SimpleMaterialDialog.OnClickListener() {
+                .setPositiveButton("Delete", R.drawable.ic_check, new SimpleMaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNegativeButton("Cancel", new SimpleMaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();

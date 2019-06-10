@@ -52,25 +52,19 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_negative"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                style="@style/DialogNegativeButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:textAllCaps="false"
                 app:iconGravity="start"
-                android:fontFamily="@font/montserrat"
                 tools:text="Negative"
                 android:layout_weight="0.5" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_positive"
-                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                style="@style/DialogPositiveButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
                 app:iconGravity="start"
-                android:fontFamily="@font/montserrat"
-                android:textAllCaps="false"
                 tools:text="Positive"
                 android:layout_weight="0.5" />
         </LinearLayout>

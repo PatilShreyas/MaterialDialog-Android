@@ -2,6 +2,7 @@ package com.shreyaspatil.MaterialDialogExample;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,19 +10,73 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
-import com.shreyaspatil.MaterialDialog.interfaces.OnCancelListener;
-import com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
-import com.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private MaterialDialog mSimpleDialog;
+    private MaterialDialog mAnimatedDialog;
+    private BottomSheetMaterialDialog mSimpleBottomSheetDialog;
+    private BottomSheetMaterialDialog mAnimatedBottomSheetDialog;
+
+    private Button mButtonSimpleDialog;
+    private Button mButtonAnimatedDialog;
+    private Button mButtonBottomSheetDialog;
+    private Button mButtonAnimatedBottomSheetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mButtonSimpleDialog = findViewById(R.id.button_simple_dialog);
+        mButtonAnimatedDialog = findViewById(R.id.button_animated_dialog);
+        mButtonBottomSheetDialog = findViewById(R.id.button_simple_bottomsheet_dialog);
+        mButtonAnimatedBottomSheetDialog = findViewById(R.id.button_animated_bottomsheet_dialog);
+
+        // Simple Material Dialog
+        mSimpleDialog = new MaterialDialog.Builder(this)
+                .setTitle("Delete?")
+                .setMessage("Are you sure want to delete this file?")
+                .setCancelable(false)
+                .setPositiveButton("Delete", R.drawable.ic_delete, new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getApplicationContext(), "Deleted!", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNegativeButton("Cancel", R.drawable.ic_close, new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        Toast.makeText(getApplicationContext(), "Cancelled!", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
+                    }
+                })
+                .build();
+
+        // Simple BottomSheet Material Dialog
+        mSimpleBottomSheetDialog = new BottomSheetMaterialDialog.Builder(this)
+                .setTitle("Delete?")
+                .setMessage("Are you sure want to delete this file?")
+                .setCancelable(false)
+                .setPositiveButton("Delete", R.drawable.ic_delete, new BottomSheetMaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getApplicationContext(), "Deleted!", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNegativeButton("Cancel", R.drawable.ic_close, new BottomSheetMaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        Toast.makeText(getApplicationContext(), "Cancelled!", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
+                    }
+                })
+                .build();
+
         // Animated Simple Material Dialog
-        final MaterialDialog alertDialog = new MaterialDialog.Builder(this)
+        mAnimatedDialog = new MaterialDialog.Builder(this)
                 .setTitle("Delete?")
                 .setMessage("Are you sure want to delete this file?")
                 .setCancelable(false)
@@ -43,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         // Animated BottomSheet Material Dialog
-        final BottomSheetMaterialDialog sheetDialog = new BottomSheetMaterialDialog.Builder(this)
+       mAnimatedBottomSheetDialog = new BottomSheetMaterialDialog.Builder(this)
                 .setTitle("Delete?")
                 .setMessage("Are you sure want to delete this file?")
                 .setCancelable(false)
@@ -64,39 +119,30 @@ public class MainActivity extends AppCompatActivity {
                 .setAnimation("delete_anim.json")
                 .build();
 
-        findViewById(R.id.button_smdialog).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                alertDialog.show();
-            }
-        });
+       mButtonSimpleDialog.setOnClickListener(this);
+       mButtonBottomSheetDialog.setOnClickListener(this);
+       mButtonAnimatedDialog.setOnClickListener(this);
+       mButtonAnimatedBottomSheetDialog.setOnClickListener(this);
+    }
 
-        findViewById(R.id.button_bsdialog).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sheetDialog.show();
-            }
-        });
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button_simple_dialog :
+                mSimpleDialog.show();
+                break;
 
-        sheetDialog.setOnCancelListener(new OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                System.out.println("CANCELLED");
-            }
-        });
+            case R.id.button_simple_bottomsheet_dialog :
+                mSimpleBottomSheetDialog.show();
+                break;
 
-        sheetDialog.setOnShowListener(new OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialogInterface) {
-                System.out.println("SHOWED");
-            }
-        });
+            case R.id.button_animated_dialog :
+                mAnimatedDialog.show();
+                break;
 
-        sheetDialog.setOnDismissListener(new OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-                System.out.println("DISMISS");
-            }
-        });
+            case R.id.button_animated_bottomsheet_dialog :
+                mAnimatedBottomSheetDialog.show();
+                break;
+        }
     }
 }

@@ -223,6 +223,13 @@ public class AbstractDialog implements DialogInterface {
         });
     }
 
+    /**
+     * @return {@link LottieAnimationView} from the Dialog.
+     */
+    public LottieAnimationView getAnimationView() {
+        return mAnimationView;
+    }
+
     private void showCallback() {
         if (mOnShowListener != null) {
             mOnShowListener.onShow(this);

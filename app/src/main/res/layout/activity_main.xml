@@ -6,24 +6,47 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:padding="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_smdialog"
+            android:id="@+id/button_simple_dialog"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Simple Material Dialog" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_bsdialog"
+            android:id="@+id/button_simple_bottomsheet_dialog"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Bottomsheet Material Dialog" />
+            android:text="Simple Bottomsheet Material Dialog" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_animated_dialog"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Animated Material Dialog" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_animated_bottomsheet_dialog"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Animated Bottomsheet Material Dialog" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

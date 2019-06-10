@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog">
+        <item name="android:statusBarColor">?android:attr/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">?android:attr/colorPrimaryDark</item>
+    </style>
+</resources>

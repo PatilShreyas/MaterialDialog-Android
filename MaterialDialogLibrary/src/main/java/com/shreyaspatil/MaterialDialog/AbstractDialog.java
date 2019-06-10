@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.button.MaterialButton;
@@ -18,7 +19,7 @@ import com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
 import com.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
-public class AbstractDialog implements DialogInterface {
+class AbstractDialog implements DialogInterface {
 
     //Constants
     public static final int BUTTON_POSITIVE = 1;
@@ -59,7 +60,7 @@ public class AbstractDialog implements DialogInterface {
         this.mAnimationFile = mAnimationFile;
     }
 
-    protected View createView(LayoutInflater inflater, ViewGroup container) {
+    protected View createView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
 
         final View dialogView = inflater.inflate(R.layout.layout_alert_dialog, container, false);
         // Inflate and set the layout for the dialog
@@ -170,7 +171,7 @@ public class AbstractDialog implements DialogInterface {
         }
     }
 
-    public void setOnShowListener(final OnShowListener onShowListener) {
+    public void setOnShowListener(@NonNull final OnShowListener onShowListener) {
         this.mOnShowListener = onShowListener;
 
         mDialog.setOnShowListener(new android.content.DialogInterface.OnShowListener() {
@@ -181,7 +182,7 @@ public class AbstractDialog implements DialogInterface {
         });
     }
 
-    public void setOnCancelListener(final OnCancelListener onCancelListener) {
+    public void setOnCancelListener(@NonNull final OnCancelListener onCancelListener) {
         this.mOnCancelListener = onCancelListener;
 
         mDialog.setOnCancelListener(new android.content.DialogInterface.OnCancelListener() {
@@ -192,7 +193,7 @@ public class AbstractDialog implements DialogInterface {
         });
     }
 
-    public void setOnDismissListener(final OnDismissListener onDismissListener) {
+    public void setOnDismissListener(@NonNull final OnDismissListener onDismissListener) {
         this.mOnDismissListener = onDismissListener;
 
         mDialog.setOnDismissListener(new android.content.DialogInterface.OnDismissListener() {

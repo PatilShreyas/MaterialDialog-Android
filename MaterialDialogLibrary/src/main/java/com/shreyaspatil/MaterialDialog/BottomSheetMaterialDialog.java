@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
@@ -38,7 +39,7 @@ public class BottomSheetMaterialDialog extends MaterialDialog {
     }
 
     @Override
-    protected View createView(LayoutInflater inflater, ViewGroup container) {
+    protected View createView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         return super.createView(inflater, container);
     }
 

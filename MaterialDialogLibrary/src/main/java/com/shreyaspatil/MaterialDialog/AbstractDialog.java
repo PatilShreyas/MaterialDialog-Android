@@ -19,7 +19,7 @@ import com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
 import com.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
-class AbstractDialog implements DialogInterface {
+public class AbstractDialog implements DialogInterface {
 
     //Constants
     public static final int BUTTON_POSITIVE = 1;
@@ -61,11 +61,9 @@ class AbstractDialog implements DialogInterface {
     }
 
     protected View createView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
-
-        final View dialogView = inflater.inflate(R.layout.layout_alert_dialog, container, false);
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-
+        final View dialogView = inflater.inflate(R.layout.layout_alert_dialog, container, false);
 
         // Initialize Views
         TextView mTitleView = dialogView.findViewById(R.id.textView_title);
@@ -146,7 +144,7 @@ class AbstractDialog implements DialogInterface {
     }
 
     /**
-     * It Displays the Dialog
+     * Displays the Dialog
      */
     public void show() {
         if (mDialog != null) {
@@ -157,7 +155,7 @@ class AbstractDialog implements DialogInterface {
     }
 
     /**
-     * It Cancels the Dialog
+     * Cancels the Dialog
      */
     @Override
     public void cancel() {
@@ -168,6 +166,9 @@ class AbstractDialog implements DialogInterface {
         }
     }
 
+    /**
+     * Dismisses the Dialog
+     */
     @Override
     public void dismiss() {
         if (mDialog != null) {
@@ -177,6 +178,9 @@ class AbstractDialog implements DialogInterface {
         }
     }
 
+    /**
+     * @param onShowListener interface for callback events when dialog is showed.
+     */
     public void setOnShowListener(@NonNull final OnShowListener onShowListener) {
         this.mOnShowListener = onShowListener;
 
@@ -188,6 +192,9 @@ class AbstractDialog implements DialogInterface {
         });
     }
 
+    /**
+     * @param onCancelListener interface for callback events when dialog is cancelled.
+     */
     public void setOnCancelListener(@NonNull final OnCancelListener onCancelListener) {
         this.mOnCancelListener = onCancelListener;
 
@@ -199,6 +206,9 @@ class AbstractDialog implements DialogInterface {
         });
     }
 
+    /**
+     * @param onDismissListener interface for callback events when dialog is dismissed;
+     */
     public void setOnDismissListener(@NonNull final OnDismissListener onDismissListener) {
         this.mOnDismissListener = onDismissListener;
 

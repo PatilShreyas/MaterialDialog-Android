@@ -7,6 +7,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        style="@style/MaterialDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,7 +29,7 @@
             android:layout_below="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/DialogTitle"
+            style="@style/MaterialDialog.Title"
             tools:text="Title" />
 
         <TextView
@@ -37,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/textView_title"
             tools:text="Message"
-            style="@style/DialogMessage" />
+            style="@style/MaterialDialog.Message" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,7 +53,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_negative"
-                style="@style/DialogNegativeButton"
+                style="@style/MaterialDialog.NegativeButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:iconGravity="start"
@@ -61,7 +62,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_positive"
-                style="@style/DialogPositiveButton"
+                style="@style/MaterialDialog.PositiveButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:iconGravity="start"

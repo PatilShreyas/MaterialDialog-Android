@@ -8,5 +8,4 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/montserrat</item>
     </style>
-
 </resources>

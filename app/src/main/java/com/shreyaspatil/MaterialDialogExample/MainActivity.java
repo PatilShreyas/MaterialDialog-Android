@@ -7,7 +7,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
-import com.shreyaspatil.MaterialDialog.SimpleMaterialDialog;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
 import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 import com.shreyaspatil.MaterialDialog.interfaces.OnCancelListener;
 import com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final SimpleMaterialDialog alertDialog = new SimpleMaterialDialog.Builder(this)
+        final MaterialDialog alertDialog = new MaterialDialog.Builder(this)
                 .setTitle("Exit?")
                 .setMessage("Are you sure want to exit?\nThis will quit dialog")
                 .setCancelable(false)
-                .setPositiveButton("OK", new SimpleMaterialDialog.OnClickListener() {
+                .setPositiveButton("OK", new MaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();
@@ -38,14 +38,14 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle("Exit?")
                 .setCancelable(false)
                 .setMessage("Are you sure want to exit?\nThis will quit dialog")
-                .setPositiveButton("Delete", R.drawable.ic_check, new SimpleMaterialDialog.OnClickListener() {
+                .setPositiveButton("Delete", R.drawable.ic_check, new MaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();
                         dialogInterface.dismiss();
                     }
                 })
-                .setNegativeButton("Cancel", new SimpleMaterialDialog.OnClickListener() {
+                .setNegativeButton("Cancel", new MaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();

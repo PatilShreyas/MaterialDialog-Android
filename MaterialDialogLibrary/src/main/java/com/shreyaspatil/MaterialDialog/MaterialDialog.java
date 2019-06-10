@@ -8,17 +8,17 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
-public class SimpleMaterialDialog extends AbstractDialog {
+public class MaterialDialog extends AbstractDialog {
 
 
-    protected SimpleMaterialDialog(@NonNull Activity mActivity,
-                                   @NonNull String title,
-                                   @NonNull String message,
-                                   boolean mCancelable,
-                                   @NonNull DialogButton mPositiveButton,
-                                   @NonNull DialogButton mNegativeButton,
-                                   int mAnimationResId,
-                                   @NonNull String mAnimationFile) {
+    protected MaterialDialog(@NonNull Activity mActivity,
+                             @NonNull String title,
+                             @NonNull String message,
+                             boolean mCancelable,
+                             @NonNull DialogButton mPositiveButton,
+                             @NonNull DialogButton mNegativeButton,
+                             int mAnimationResId,
+                             @NonNull String mAnimationFile) {
         super(mActivity, title, message, mCancelable, mPositiveButton, mNegativeButton, mAnimationResId, mAnimationFile);
 
         // Init Dialog
@@ -104,8 +104,8 @@ public class SimpleMaterialDialog extends AbstractDialog {
         }
 
         @NonNull
-        public SimpleMaterialDialog build() {
-            return new SimpleMaterialDialog(activity, title, message, isCancelable, positiveButton, negativeButton, animationResId, animationFile);
+        public MaterialDialog build() {
+            return new MaterialDialog(activity, title, message, isCancelable, positiveButton, negativeButton, animationResId, animationFile);
         }
 
     }

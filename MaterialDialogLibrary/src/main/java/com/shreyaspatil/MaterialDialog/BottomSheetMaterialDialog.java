@@ -8,10 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
-public class BottomSheetMaterialDialog extends SimpleMaterialDialog implements DialogInterface {
+public class BottomSheetMaterialDialog extends MaterialDialog {
 
     private AppCompatActivity mActivity;
 

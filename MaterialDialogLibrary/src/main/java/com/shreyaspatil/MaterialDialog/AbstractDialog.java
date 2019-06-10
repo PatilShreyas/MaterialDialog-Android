@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.button.MaterialButton;
@@ -20,7 +19,6 @@ import com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
 import com.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
-@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public class AbstractDialog implements DialogInterface {
 
     //Constants

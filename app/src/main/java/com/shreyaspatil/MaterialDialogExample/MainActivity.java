@@ -18,20 +18,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private BottomSheetMaterialDialog mSimpleBottomSheetDialog;
     private BottomSheetMaterialDialog mAnimatedBottomSheetDialog;
 
-    private Button mButtonSimpleDialog;
-    private Button mButtonAnimatedDialog;
-    private Button mButtonBottomSheetDialog;
-    private Button mButtonAnimatedBottomSheetDialog;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mButtonSimpleDialog = findViewById(R.id.button_simple_dialog);
-        mButtonAnimatedDialog = findViewById(R.id.button_animated_dialog);
-        mButtonBottomSheetDialog = findViewById(R.id.button_simple_bottomsheet_dialog);
-        mButtonAnimatedBottomSheetDialog = findViewById(R.id.button_animated_bottomsheet_dialog);
+        Button mButtonSimpleDialog = findViewById(R.id.button_simple_dialog);
+        Button mButtonAnimatedDialog = findViewById(R.id.button_animated_dialog);
+        Button mButtonBottomSheetDialog = findViewById(R.id.button_simple_bottomsheet_dialog);
+        Button mButtonAnimatedBottomSheetDialog = findViewById(R.id.button_animated_bottomsheet_dialog);
 
         // Simple Material Dialog
         mSimpleDialog = new MaterialDialog.Builder(this)

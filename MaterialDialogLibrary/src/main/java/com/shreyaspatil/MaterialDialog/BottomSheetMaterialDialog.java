@@ -101,7 +101,7 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
         /** Sets the Positive Button to BottomSheet Material Dialog without icon
          * @param name sets the name/label of button.
          * @param onClickListener interface for callback event on click of button.
-         * @see {@link #setPositiveButton(String, int, OnClickListener)}.
+         * @return this, for chaining.
          */
         @NonNull
         public Builder setPositiveButton(@NonNull String name, @NonNull OnClickListener onClickListener) {
@@ -123,7 +123,7 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
         /** Sets the Negative Button to BottomSheet Material Dialog without icon.
          * @param name sets the name/label of button.
          * @param onClickListener interface for callback event on click of button.
-         * @see {@link #setNegativeButton(String, int, OnClickListener)}.
+         * @see this, for chaining.
          */
         @NonNull
         public Builder setNegativeButton(@NonNull String name, @NonNull OnClickListener onClickListener) {

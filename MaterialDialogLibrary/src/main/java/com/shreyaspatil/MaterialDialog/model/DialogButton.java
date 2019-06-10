@@ -1,13 +1,13 @@
 package com.shreyaspatil.MaterialDialog.model;
 
-import com.shreyaspatil.MaterialDialog.SimpleMaterialDialog;
+import com.shreyaspatil.MaterialDialog.AbstractDialog;
 
 public class DialogButton {
     private String title;
     private int icon;
-    private SimpleMaterialDialog.OnClickListener onClickListener;
+    private AbstractDialog.OnClickListener onClickListener;
 
-    public DialogButton(String title, int icon, SimpleMaterialDialog.OnClickListener onClickListener) {
+    public DialogButton(String title, int icon, AbstractDialog.OnClickListener onClickListener) {
         this.title = title;
         this.icon = icon;
         this.onClickListener = onClickListener;
@@ -21,7 +21,7 @@ public class DialogButton {
         return icon;
     }
 
-    public SimpleMaterialDialog.OnClickListener getOnClickListener() {
+    public AbstractDialog.OnClickListener getOnClickListener() {
         return onClickListener;
     }
 }

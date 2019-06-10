@@ -1,51 +1,59 @@
 package com.shreyaspatil.MaterialDialog;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
-public class SimpleMaterialDialog extends AbstractDialog {
+public class BottomSheetMaterialDialog extends SimpleMaterialDialog implements DialogInterface {
 
+    private AppCompatActivity mActivity;
 
-    protected SimpleMaterialDialog(@NonNull Activity mActivity,
-                                   @NonNull String title,
-                                   @NonNull String message,
-                                   boolean mCancelable,
-                                   @NonNull DialogButton mPositiveButton,
-                                   @NonNull DialogButton mNegativeButton,
-                                   int mAnimationResId,
-                                   @NonNull String mAnimationFile) {
+    protected BottomSheetMaterialDialog(@NonNull AppCompatActivity mActivity,
+                                        @NonNull String title,
+                                        @NonNull String message,
+                                        boolean mCancelable,
+                                        @NonNull DialogButton mPositiveButton,
+                                        @NonNull DialogButton mNegativeButton,
+                                        int mAnimationResId,
+                                        @NonNull String mAnimationFile) {
         super(mActivity, title, message, mCancelable, mPositiveButton, mNegativeButton, mAnimationResId, mAnimationFile);
 
-        // Init Dialog
-        final AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+        this.mActivity = mActivity;
+
+        // Init Dialog, Create Bottom Sheet Dialog
+        mDialog = new BottomSheetDialog(mActivity);
 
         LayoutInflater inflater = mActivity.getLayoutInflater();
 
-        builder.setView(createView(inflater, null));
+        mDialog.setContentView(createView(inflater, null));
 
         // Set Cancelable property
-        builder.setCancelable(mCancelable);
+        mDialog.setCancelable(mCancelable);
+    }
 
-        // Create and show dialog
-        mDialog = builder.create();
+    @Override
+    protected View createView(LayoutInflater inflater, ViewGroup container) {
+        return super.createView(inflater, container);
     }
 
     public static class Builder {
-        private Activity activity;
+        private AppCompatActivity activity;
         private String title;
         private String message;
-        private boolean isCancelable;
+        private boolean isCancelable = false;
         private DialogButton positiveButton;
         private DialogButton negativeButton;
         private int animationResId = NO_ANIMATION;
         private String animationFile;
 
-        public Builder(@NonNull Activity activity) {
+        public Builder(@NonNull AppCompatActivity activity) {
             this.activity = activity;
         }
 
@@ -104,9 +112,16 @@ public class SimpleMaterialDialog extends AbstractDialog {
         }
 
         @NonNull
-        public SimpleMaterialDialog build() {
-            return new SimpleMaterialDialog(activity, title, message, isCancelable, positiveButton, negativeButton, animationResId, animationFile);
+        public BottomSheetMaterialDialog build() {
+            return new BottomSheetMaterialDialog(activity, title, message, isCancelable, positiveButton, negativeButton, animationResId, animationFile);
         }
 
+    }
+
+    class BottomSheetDialog extends com.google.android.material.bottomsheet.BottomSheetDialog {
+
+        public BottomSheetDialog(@NonNull Context context) {
+            super(context, R.style.BottomSheetDialogTheme);
+        }
     }
 }

@@ -28,30 +28,16 @@
             android:layout_below="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat"
-            android:gravity="center"
-            android:textColor="@color/colorTitle"
-            android:layout_marginTop="12dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
+            style="@style/DialogTitle"
             tools:text="Title" />
 
         <TextView
             android:id="@+id/textView_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:fontFamily="@font/montserrat"
             android:layout_below="@id/textView_title"
-            android:layout_marginTop="8dp"
-            android:gravity="center"
-            android:text="Message"
             tools:text="Message"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textColor="@color/colorMessage" />
+            style="@style/DialogMessage" />
 
         <LinearLayout
             android:layout_width="match_parent"

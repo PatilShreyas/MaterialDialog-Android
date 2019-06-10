@@ -7,9 +7,11 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
+        android:id="@+id/relative_layout_dialog"
         style="@style/MaterialDialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,10 +20,11 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="175dp"
             app:lottie_loop="true"
             android:visibility="gone"
-            android:scaleType="fitCenter"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
             app:lottie_autoPlay="true"/>
 
         <TextView

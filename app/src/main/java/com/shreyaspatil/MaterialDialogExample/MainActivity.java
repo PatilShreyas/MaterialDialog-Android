@@ -20,38 +20,48 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Animated Simple Material Dialog
         final MaterialDialog alertDialog = new MaterialDialog.Builder(this)
-                .setTitle("Exit?")
-                .setMessage("Are you sure want to exit?\nThis will quit dialog")
+                .setTitle("Delete?")
+                .setMessage("Are you sure want to delete this file?")
                 .setCancelable(false)
-                .setPositiveButton("OK", new MaterialDialog.OnClickListener() {
+                .setPositiveButton("Delete", R.drawable.ic_delete, new MaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Deleted!", Toast.LENGTH_SHORT).show();
                         dialogInterface.dismiss();
                     }
                 })
-                .setAnimation("plane.json")
+                .setNegativeButton("Cancel", R.drawable.ic_close, new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        Toast.makeText(getApplicationContext(), "Cancelled!", Toast.LENGTH_SHORT).show();
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setAnimation("delete_anim.json")
                 .build();
 
+        // Animated BottomSheet Material Dialog
         final BottomSheetMaterialDialog sheetDialog = new BottomSheetMaterialDialog.Builder(this)
-                .setTitle("Exit?")
+                .setTitle("Delete?")
+                .setMessage("Are you sure want to delete this file?")
                 .setCancelable(false)
-                .setMessage("Are you sure want to exit?\nThis will quit dialog")
-                .setPositiveButton("Delete", R.drawable.ic_check, new MaterialDialog.OnClickListener() {
+                .setPositiveButton("Delete", R.drawable.ic_delete, new BottomSheetMaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Deleted!", Toast.LENGTH_SHORT).show();
                         dialogInterface.dismiss();
                     }
                 })
-                .setNegativeButton("Cancel", new MaterialDialog.OnClickListener() {
+                .setNegativeButton("Cancel", R.drawable.ic_close, new BottomSheetMaterialDialog.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getApplicationContext(), "YES Click", Toast.LENGTH_SHORT).show();
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        Toast.makeText(getApplicationContext(), "Cancelled!", Toast.LENGTH_SHORT).show();
                         dialogInterface.dismiss();
                     }
                 })
+                .setAnimation("delete_anim.json")
                 .build();
 
         findViewById(R.id.button_smdialog).setOnClickListener(new View.OnClickListener() {

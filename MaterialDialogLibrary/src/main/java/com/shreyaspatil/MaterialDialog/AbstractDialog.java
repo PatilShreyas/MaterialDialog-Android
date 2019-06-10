@@ -145,6 +145,9 @@ class AbstractDialog implements DialogInterface {
         return dialogView;
     }
 
+    /**
+     * It Displays the Dialog
+     */
     public void show() {
         if (mDialog != null) {
             mDialog.show();
@@ -153,6 +156,9 @@ class AbstractDialog implements DialogInterface {
         }
     }
 
+    /**
+     * It Cancels the Dialog
+     */
     @Override
     public void cancel() {
         if (mDialog != null) {

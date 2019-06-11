@@ -21,8 +21,6 @@
 # Table of Contents:
 > - [ Introduction ](#introduction)
 > - [ Types of Dialog ](#types)
->    - [ Material Dialog ](#materialDialog)
->    - [ Bottom Sheet Material Dialog ](#bsMaterialDialog)
 > - [ Implementation ](#implementation)
 >    - [ Prerequisite ](#prerequisite)
 >    - [ Create Dialog Instance ](#createDialogInstance)
@@ -45,17 +43,20 @@ Refer [this](https://airbnb.io/lottie/#/) for Lottie documentation.
 ## Types of Dialog
 **MaterialDialog** library provides two types of dialog i.e. 
 
-<a name="materialDialog"></a>
-### Material Dialog
-This is basic material dialog which has two material buttons (Same as Android's `AlertDialog`) as you can see below.
-
-<img src="Screenshots/MaterialDialog.png" height="200"/>
-
-<a name="bsMaterialDialog"></a>
-### Bottom Sheet Material Dialog
-This is Bottom Sheet material dialog which has two material buttons which is showed from bottom of device as you can see below. <br>
-
-<img src="Screenshots/BottomSheetMaterialDialog.png" height="200"/>
+<table style="width:100%">
+  <tr>
+    <th><b>1. Material Dialog<b></b></th>
+    <th>2. Bottom Sheet Material Dialog</th>
+  </tr>
+  <tr>
+    <td>This is basic material dialog which has two material buttons (Same as Android's `AlertDialog`) as you can see below.</td>
+    <td>This is Bottom Sheet material dialog which has two material buttons which is showed from bottom of device as you can see below.</td> 
+  </tr>
+  <tr>
+    <td><img src="Screenshots/MaterialDialog.png" width="30%"/></td>
+    <td><img src="Screenshots/BottomSheetMaterialDialog.png" width="30%"/></td> 
+  </tr>
+</table>
 
 <a name="implementation"></a>
 ## Implementation

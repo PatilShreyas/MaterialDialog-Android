@@ -49,12 +49,12 @@ Refer [this](https://airbnb.io/lottie/#/) for Lottie documentation.
     <th>2. Bottom Sheet Material Dialog</th>
   </tr>
   <tr>
-    <td>This is basic material dialog which has two material buttons (Same as Android's `AlertDialog`) as you can see below.</td>
+    <td>This is basic material dialog which has two material buttons (Same as Android's AlertDialog) as you can see below.</td>
     <td>This is Bottom Sheet material dialog which has two material buttons which is showed from bottom of device as you can see below.</td> 
   </tr>
   <tr>
-    <td><img src="Screenshots/MaterialDialog.png" width="30%"/></td>
-    <td><img src="Screenshots/BottomSheetMaterialDialog.png" width="30%"/></td> 
+    <td><img src="Screenshots/MaterialDialog.png" width="75%"/></td>
+    <td><img src="Screenshots/BottomSheetMaterialDialog.png" width="75%"/></td> 
   </tr>
 </table>
 

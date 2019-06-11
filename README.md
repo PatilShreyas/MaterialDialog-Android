@@ -1,6 +1,6 @@
 # Material Dialogs for Android 📱
 
-📱Android Library to implement *animated*, 😍*beautiful*, 🎨*stylish* Material Dialog in android apps easily .🖼️
+📱Android Library to implement *animated*, 😍*beautiful*, 🎨*stylish* Material Dialog in android apps easily.
 
 <table style="width:100%">
   <tr>
@@ -53,8 +53,8 @@ Refer [this](https://airbnb.io/lottie/#/) for Lottie documentation.
     <td>This is Bottom Sheet material dialog which has two material buttons which is showed from bottom of device as you can see below.</td> 
   </tr>
   <tr>
-    <td><img src="Screenshots/MaterialDialog.png" width="75%"/></td>
-    <td><img src="Screenshots/BottomSheetMaterialDialog.png" width="75%"/></td> 
+    <td align="center"><img src="Screenshots/MaterialDialog.png" width="75%"/></td>
+    <td align="center"><img src="Screenshots/BottomSheetMaterialDialog.png" width="75%"/></td> 
   </tr>
 </table>
 
@@ -63,7 +63,7 @@ Refer [this](https://airbnb.io/lottie/#/) for Lottie documentation.
 Implementation of Material Dialog library is so easy. You can check [/app](/app) directory for demo. Let's have look on basic steps of implementation.
 <a name="prerequisite"></a>
 ### Prerequisite
-#### Gradle
+#### i. Gradle
 In `Build.gradle` of app module, include these dependencies. If you want to show animations, include *Lottie* animation library.
 ```groovy
 dependencies {
@@ -78,7 +78,7 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.0.6'
 }
 ```
-#### Set up Material Theme
+#### ii. Set up Material Theme
 Setting Material Theme to app is necessary before implementing Material Dialog library. To set it up, update [`styles.xml`](app\src\main\res\values\styles.xml) of `values` directory in app.
 ```xml
 <resources>
@@ -94,7 +94,7 @@ These are required prerequisites to implement Material Dialog library.
 ### Create Dialog Instance
 As there are two types of dialogs in library. Material Dialogs are instantiated as follows.
 <a name="createMaterialDialog"></a>
-#### Material Dialog
+#### i. Material Dialog
 `MaterialDialog` class is used to create Material Dialog. Its static `Builder` class is used to instantiate it. After building, to show the dialog, `show()` method of `MaterialDialog` is used.
 ```java
         MaterialDialog mDialog = new MaterialDialog.Builder(this)
@@ -119,10 +119,10 @@ As there are two types of dialogs in library. Material Dialogs are instantiated 
         mDialog.show();
 ```
 
-<img src="GIFs/SimpleMaterialDialog.gif" width="300"/>
+<img align="center" src="GIFs/SimpleMaterialDialog.gif" width="300"/>
 
 <a name="createBsMaterialDialog"></a>
-#### Bottom Sheet Material Dialog
+#### ii. Bottom Sheet Material Dialog
 `BottomSheetMaterialDialog` class is used to create Bottom Sheet Material Dialog. Its static `Builder` class is used to instantiate it. After building, to show the dialog, `show()` method of `BottomSheetMaterialDialog` is used.
 ```java
         BottomSheetMaterialDialog mBottomSheetDialog = new BottomSheetMaterialDialog.Builder(this)
@@ -149,7 +149,7 @@ As there are two types of dialogs in library. Material Dialogs are instantiated 
         mBottomSheetDialog.show();
 ```
 
-<img src="GIFs/BottomSheetMaterialDialog.gif" width="300"/>
+<img align="center" src="GIFs/BottomSheetMaterialDialog.gif" width="300"/>
 
 <a name="showAnims"></a>
 ### Show Animations
@@ -169,7 +169,7 @@ Animations in this library are implemented using Lottie animation library. You c
 
 For example, here `delete_anim.json` animation file is used to show file delete animation.
 <a name="showAnimRes"></a>
-#### Using `Resource` File
+#### i. Using `Resource` File
 Downloaded json file should placed in `raw` directory of `res`.
 
 ![](Screenshots/ScreenAnimRes.PNG)
@@ -187,7 +187,7 @@ Resource file should be passed to method. e.g. `R.raw.delete_anim`.
                 //...
 ```
 <a name="showAnimFile"></a>
-#### Using `Asset` File
+#### ii. Using `Asset` File
 Downloaded json file should placed in `asset` directory.
 
 ![](Screenshots/ScreenAnimAsset.PNG)
@@ -206,7 +206,7 @@ Prototype:
 ```
 
 <a name="getLottieAnimationView"></a>
-#### Getting `LottieAnimationView` 
+#### iii. Getting `LottieAnimationView` 
 To get `View` of Animation for any operations, there is a method in Material Dialogs which returns `LottieAnimationView` of dialog.
 ```java
         // Get Animation View

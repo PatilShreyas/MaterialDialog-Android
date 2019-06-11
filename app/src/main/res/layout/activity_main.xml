@@ -14,12 +14,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_simple_dialog"
-            android:layout_marginTop="16dp"
-            android:textAllCaps="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Simple Material Dialog" />
+            android:layout_marginTop="16dp"
+            android:text="Simple Material Dialog"
+            android:textAllCaps="false" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_simple_bottomsheet_dialog"

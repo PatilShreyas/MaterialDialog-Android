@@ -59,7 +59,7 @@
                 style="@style/MaterialDialog.NegativeButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:iconGravity="start"
+                app:iconGravity="textStart"
                 tools:text="Negative"
                 android:layout_weight="0.5" />
 
@@ -68,9 +68,9 @@
                 style="@style/MaterialDialog.PositiveButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:iconGravity="start"
-                tools:text="Positive"
-                android:layout_weight="0.5" />
+                android:layout_weight="0.5"
+                app:iconGravity="textStart"
+                tools:text="Positive" />
         </LinearLayout>
 
     </RelativeLayout>

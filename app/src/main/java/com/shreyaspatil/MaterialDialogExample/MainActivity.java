@@ -10,8 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
+import com.shreyaspatil.MaterialDialog.interfaces.OnCancelListener;
+import com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
+import com.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, OnShowListener, OnCancelListener, OnDismissListener {
 
     private MaterialDialog mSimpleDialog;
     private MaterialDialog mAnimatedDialog;
@@ -118,6 +121,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        mButtonBottomSheetDialog.setOnClickListener(this);
        mButtonAnimatedDialog.setOnClickListener(this);
        mButtonAnimatedBottomSheetDialog.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -139,5 +144,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mAnimatedBottomSheetDialog.show();
                 break;
         }
+    }
+
+    @Override
+    public void onShow(DialogInterface dialogInterface) {
+
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialogInterface) {
+
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialogInterface) {
+
     }
 }

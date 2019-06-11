@@ -1,4 +1,5 @@
 # Material Dialogs for Android 📱
+
 📱Android Library to implement *animated*, 😍*beautiful*, 🎨*stylish* Material Dialog in android apps easily .🖼️
 
 <table style="width:100%">
@@ -18,21 +19,21 @@
 
 
 # Table of Contents:
-- [ Introduction ](#introduction)
-- [ Types of Dialog ](#types)
-    - [ Material Dialog ](#materialDialog)
-    - [ Bottom Sheet Material Dialog ](#bsMaterialDialog)
-- [ Implementation ](#implementation)
-    - [ Prerequisite ](#prerequisite)
-    - [ Create Dialog Instance ](#createDialogInstance)
-        - [ Material Dialog ](#createMaterialDialog)
-        - [ Bottom Sheet Material Dialog ](#createBsMaterialDialog)
-    - [ Show Animations ](#showAnims)
-        - [ Using `Resource` File ](#showAnimRes)
-        - [ Using `Asset` File ](#showAnimFile)
-        - [ Getting `LottieAnimationView` ](#getLottieAnimationView)
-    - [ Dialog State Callbacks ](#stateCallbacks)
-- [ Credits ](#credits)    
+> - [ Introduction ](#introduction)
+> - [ Types of Dialog ](#types)
+>    - [ Material Dialog ](#materialDialog)
+>    - [ Bottom Sheet Material Dialog ](#bsMaterialDialog)
+> - [ Implementation ](#implementation)
+>    - [ Prerequisite ](#prerequisite)
+>    - [ Create Dialog Instance ](#createDialogInstance)
+>        - [ Material Dialog ](#createMaterialDialog)
+>        - [ Bottom Sheet Material Dialog ](#createBsMaterialDialog)
+>    - [ Show Animations ](#showAnims)
+>        - [ Using `Resource` File ](#showAnimRes)
+>        - [ Using `Asset` File ](#showAnimFile)
+>        - [ Getting `LottieAnimationView` ](#getLottieAnimationView)
+>    - [ Dialog State Callbacks ](#stateCallbacks)
+> - [ Credits ](#credits)    
 
 <a name="introduction"></a>
 ## Introduction

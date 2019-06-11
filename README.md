@@ -32,7 +32,7 @@
 >        - [ Using `Resource` File ](#showAnimRes)
 >        - [ Using `Asset` File ](#showAnimFile)
 >        - [ Getting `LottieAnimationView` ](#getLottieAnimationView)
->    - [ Dialog State Callbacks ](#stateCallbacks)
+>    - [ Dialog State Listeners ](#stateCallbacks)
 > - [ Credits ](#credits)    
 
 <a name="introduction"></a>
@@ -214,7 +214,7 @@ To get `View` of Animation for any operations, there is a method in Material Dia
 ```
 
 <a name="stateCallbacks"></a>
-### Dialog State Callbacks 
+### Dialog State Listeners 
 There are three callback events and listeners for Dialog.
 
 Following are interfaces for implementations:
@@ -230,17 +230,17 @@ Following are interfaces for implementations:
     
     @Override
     public void onShow(DialogInterface dialogInterface) {
-        
+        // Dialog is Displayed
     }
 
     @Override
     public void onCancel(DialogInterface dialogInterface) {
-        
+        // Dialog is Cancelled
     }
 
     @Override
     public void onDismiss(DialogInterface dialogInterface) {
-        
+        // Dialog is Dismissed
     }
 }
 ```

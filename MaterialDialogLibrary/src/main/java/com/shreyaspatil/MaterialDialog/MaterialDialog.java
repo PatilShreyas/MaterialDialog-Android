@@ -31,7 +31,12 @@ public class MaterialDialog extends AbstractDialog {
 
         LayoutInflater inflater = mActivity.getLayoutInflater();
 
-        builder.setView(createView(inflater, null));
+        View view = createView(inflater, null);
+        
+        // Set Corner Radius
+        view.setRoundRect(16, 16, 16, 16);
+        
+        builder.setView(view);
 
         // Set Cancelable property
         builder.setCancelable(mCancelable);

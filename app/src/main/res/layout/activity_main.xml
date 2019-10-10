@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:text="Simple Material Dialog"
+            android:text="@string/simple_material_dialog"
             android:textAllCaps="false" />
 
         <com.google.android.material.button.MaterialButton
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Simple Bottomsheet Material Dialog" />
+            android:text="@string/simple_bottomsheet_material_dialog" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_animated_dialog"
@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Animated Material Dialog" />
+            android:text="@string/animated_material_dialog" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_animated_bottomsheet_dialog"
@@ -46,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Animated Bottomsheet Material Dialog" />
+            android:text="@string/animated_bottomsheet_material_dialog" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

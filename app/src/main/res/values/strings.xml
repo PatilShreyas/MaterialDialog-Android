@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Demo - Material Dialog</string>
+    <string name="simple_material_dialog">Simple Material Dialog</string>
+    <string name="simple_bottomsheet_material_dialog">Simple Bottomsheet Material Dialog</string>
+    <string name="animated_material_dialog">Animated Material Dialog</string>
+    <string name="animated_bottomsheet_material_dialog">Animated Bottomsheet Material Dialog</string>
 </resources>

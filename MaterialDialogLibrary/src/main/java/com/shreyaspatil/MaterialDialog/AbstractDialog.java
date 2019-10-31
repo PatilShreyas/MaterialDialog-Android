@@ -21,6 +21,7 @@ import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
 public class AbstractDialog implements DialogInterface {
 
+    Bundle bundle = new Bundle();
     //Constants
     public static final int BUTTON_POSITIVE = 1;
     public static final int BUTTON_NEGATIVE = -1;
@@ -126,7 +127,30 @@ public class AbstractDialog implements DialogInterface {
         }
 
         // Set Animation from Resource
-        if (mAnimationResId != NO_ANIMATION) {
+        public void onConfigurationChanged(Configuration newConfig){
+            super.onConfigurationChanged(newConfig);
+            if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                onSaveInstanceState(newBundy);
+                mAnimationView.setVisibility(View.GONE);
+                else if (newConfig.orientation == Configuration.ORIENTATION_POTRAIT) {
+                {
+                    savedInstanceState.getBundle("bundle");
+                }
+            }
+        }
+        public void onSaveInstanceState(Bundle outState) {
+            super.onSaveInstanceState(outState);
+            outState.putBundle("bundle", bundle);
+        }
+
+        @Override
+        protected void onRestoreInstanceState(Bundle savedInstanceState) {
+            super.onRestoreInstanceState(savedInstanceState);
+            savedInstanceState.getBundle("bundle");
+        }
+
+
+         if (mAnimationResId != NO_ANIMATION) {
             mAnimationView.setVisibility(View.VISIBLE);
             mAnimationView.setAnimation(mAnimationResId);
             mAnimationView.playAnimation();

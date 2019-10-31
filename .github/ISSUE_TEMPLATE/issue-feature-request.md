@@ -1,6 +1,6 @@
 ---
-name: Issue/Feature Request
-about: To provide template for bug/feature request.
+name: Issue/Bug/Feature Request
+about: Provide information about your bug/feature request.
 title: "[BUG/FEATURE REQUEST] TITLE HERE"
 labels: ''
 assignees: PatilShreyas

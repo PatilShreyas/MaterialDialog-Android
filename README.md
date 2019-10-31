@@ -31,6 +31,7 @@
 >        - [ Using `Asset` File ](#showAnimFile)
 >        - [ Getting `LottieAnimationView` ](#getLottieAnimationView)
 >    - [ Dialog State Listeners ](#stateCallbacks)
+> - [ Contribute ](#contribute)    
 > - [ Credits ](#credits)    
 
 <a name="introduction"></a>
@@ -246,9 +247,17 @@ Following are interfaces for implementations:
 }
 ```
 
+<a name="contribute"></a>
+## Contribute
+Let's develop with collaborations. We would love to have contributions by raising issues and opening PRs. Filing an issue before PR is must.
+See [Contributing Guidelines](CONTRIBUTING.md). 
+
 <a name="credits"></a>
 ## Credits
 This library is built using following open-source libraries.
 - [Material Components for Android](https://github.com/material-components/material-components-android)
 - [Lottie for Android](https://github.com/airbnb/lottie-android)
+
+## License
+Project is published under the Apache 2.0 license. Feel free to clone and modify repo as you want, but don't forget to add reference to authors :)
 

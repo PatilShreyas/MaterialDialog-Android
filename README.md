@@ -2,7 +2,7 @@
 
 📱Android Library to implement *animated*, 😍*beautiful*, 🎨*stylish* Material Dialog in android apps easily.
 
-<table style="width:100%">
+<table style="width:90%">
   <tr>
     <th><b>1. Material Dialog<b></b></th>
     <th>2. Animated Material Dialog</th> 

@@ -10,6 +10,7 @@ import android.view.ViewOutlineProvider;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
@@ -47,18 +48,15 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
         mDialog.setCancelable(mCancelable);
 
         // Clip AnimationView to round Corners
-        if (mAnimationFile != null || mAnimationResId != NO_ANIMATION) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mAnimationView.setOutlineProvider(new ViewOutlineProvider() {
-                    @Override
-                    public void getOutline(View view, Outline outline) {
-                        float radius = mActivity.getResources().getDimension(R.dimen.radiusTop);
-                        outline.setRoundRect(0, 0, view.getWidth(), view.getHeight() + (int) radius, radius);
-                    }
-                });
-
-                mAnimationView.setClipToOutline(true);
-            }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            dialogView.setOutlineProvider(new ViewOutlineProvider() {
+                @Override
+                public void getOutline(View view, Outline outline) {
+                    float radius = mActivity.getResources().getDimension(R.dimen.radiusTop);
+                    outline.setRoundRect(0, 0, view.getWidth(), view.getHeight() + (int) radius, radius);
+                }
+            });
+            dialogView.setClipToOutline(true);
         } else {
             dialogView.findViewById(R.id.relative_layout_dialog).setPadding(0, (int) mActivity.getResources().getDimension(R.dimen.paddingTop),0,0);
         }
@@ -168,7 +166,7 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
          * @return this, for chaining.
          */
         @NonNull
-        public Builder setAnimation(int animationResId) {
+        public Builder setAnimation(@RawRes int animationResId) {
             this.animationResId = animationResId;
             return this;
         }

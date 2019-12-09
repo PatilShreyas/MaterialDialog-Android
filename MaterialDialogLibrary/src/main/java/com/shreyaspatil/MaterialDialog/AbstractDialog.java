@@ -2,6 +2,9 @@ package com.shreyaspatil.MaterialDialog;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.res.ColorStateList;
+import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
+import androidx.core.content.ContextCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.button.MaterialButton;
@@ -49,7 +54,7 @@ public class AbstractDialog implements DialogInterface {
                              boolean mCancelable,
                              @NonNull DialogButton mPositiveButton,
                              @NonNull DialogButton mNegativeButton,
-                             int mAnimationResId,
+                             @RawRes int mAnimationResId,
                              @NonNull String mAnimationFile) {
         this.mActivity = mActivity;
         this.title = title;
@@ -125,20 +130,86 @@ public class AbstractDialog implements DialogInterface {
             mNegativeButtonView.setVisibility(View.INVISIBLE);
         }
 
-        // Set Animation from Resource
-        if (mAnimationResId != NO_ANIMATION) {
-            mAnimationView.setVisibility(View.VISIBLE);
-            mAnimationView.setAnimation(mAnimationResId);
-            mAnimationView.playAnimation();
-
-            // Set Animation from Assets File
-        } else if (mAnimationFile != null) {
-            mAnimationView.setVisibility(View.VISIBLE);
-            mAnimationView.setAnimation(mAnimationFile);
-            mAnimationView.playAnimation();
-
-        } else {
+        // If Orientation is Horizontal, Hide AnimationView
+        int orientation = mActivity.getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             mAnimationView.setVisibility(View.GONE);
+        } else {
+            // Set Animation from Resource
+            if (mAnimationResId != NO_ANIMATION) {
+                mAnimationView.setVisibility(View.VISIBLE);
+                mAnimationView.setAnimation(mAnimationResId);
+                mAnimationView.playAnimation();
+
+                // Set Animation from Assets File
+            } else if (mAnimationFile != null) {
+                mAnimationView.setVisibility(View.VISIBLE);
+                mAnimationView.setAnimation(mAnimationFile);
+                mAnimationView.playAnimation();
+
+            } else {
+                mAnimationView.setVisibility(View.GONE);
+            }
+        }
+
+        // Apply Styles
+        TypedArray a = mActivity.getTheme().obtainStyledAttributes(R.styleable.MaterialDialog);
+
+        try {
+            // Set Dialog Background
+            dialogView.setBackgroundColor(
+                    a.getColor(R.styleable.MaterialDialog_material_dialog_background,
+                            mActivity.getResources().getColor(R.color.material_dialog_background)));
+
+            // Set Title Text Color
+            mTitleView.setTextColor(
+                    a.getColor(R.styleable.MaterialDialog_material_dialog_title_text_color,
+                            mActivity.getResources().getColor(R.color.material_dialog_title_text_color)));
+
+            // Set Message Text Color
+            mMessageView.setTextColor(
+                    a.getColor(R.styleable.MaterialDialog_material_dialog_message_text_color,
+                            mActivity.getResources().getColor((R.color.material_dialog_message_text_color))));
+
+            // Set Positive Button Icon Tint
+            ColorStateList mPositiveButtonTint = a.getColorStateList(
+                    R.styleable.MaterialDialog_material_dialog_positive_button_text_color);
+
+            if (mPositiveButtonTint == null) {
+                mPositiveButtonTint = ContextCompat.getColorStateList(
+                        mActivity.getApplicationContext(),
+                        R.color.material_dialog_positive_button_text_color);
+            }
+            mPositiveButtonView.setTextColor(mPositiveButtonTint);
+            mPositiveButtonView.setIconTint(mPositiveButtonTint);
+
+            // Set Negative Button Icon & Text Tint
+            ColorStateList mNegativeButtonTint = a.getColorStateList(
+                    R.styleable.MaterialDialog_material_dialog_negative_button_text_color);
+
+            if (mNegativeButtonTint == null) {
+                mNegativeButtonTint = ContextCompat.getColorStateList(
+                        mActivity.getApplicationContext(),
+                        R.color.material_dialog_negative_button_text_color);
+            }
+            mNegativeButtonView.setIconTint(mNegativeButtonTint);
+            mNegativeButtonView.setTextColor(mNegativeButtonTint);
+
+            // Set Positive Button Background Tint
+            ColorStateList mBackgroundTint = a.getColorStateList(
+                    R.styleable.MaterialDialog_material_dialog_positive_button_color);
+
+            if (mBackgroundTint == null) {
+                mBackgroundTint = ContextCompat.getColorStateList(
+                        mActivity.getApplicationContext(),
+                        R.color.material_dialog_positive_button_color);
+            }
+            mPositiveButtonView.setBackgroundTintList(mBackgroundTint);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            a.recycle();
         }
 
         return dialogView;

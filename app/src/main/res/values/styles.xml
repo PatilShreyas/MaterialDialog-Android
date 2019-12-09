@@ -7,5 +7,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/montserrat</item>
+
+        <item name="material_dialog_background">#F0F0F0</item>
+        <item name="material_dialog_title_text_color">#000000</item>
+        <item name="material_dialog_message_text_color">#464646</item>
+        <item name="material_dialog_positive_button_color">#FDD835</item>
+        <item name="material_dialog_positive_button_text_color">#000000</item>
+        <item name="material_dialog_negative_button_text_color">#000000</item>
     </style>
 </resources>

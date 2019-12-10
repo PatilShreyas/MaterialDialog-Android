@@ -81,13 +81,13 @@ In `Build.gradle` of app module, include these dependencies. If you want to show
 dependencies {
 
     // Material Dialog Library
-    implementation 'com.shreyaspatil:MaterialDialog:1.0.0'
+    implementation 'com.shreyaspatil:MaterialDialog:2.0'
 
     // Material Design Library
     implementation 'com.google.android.material:material:1.0.0'
 
     // Lottie Animation Library
-    implementation 'com.airbnb.android:lottie:3.0.6'
+    implementation 'com.airbnb.android:lottie:3.3.6'
 }
 ```
 #### ii. Set up Material Theme

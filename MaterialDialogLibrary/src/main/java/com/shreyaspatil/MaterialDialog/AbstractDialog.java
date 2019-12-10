@@ -207,7 +207,9 @@ public class AbstractDialog implements DialogInterface {
                         R.color.material_dialog_positive_button_color);
             }
             mPositiveButtonView.setBackgroundTintList(mBackgroundTint);
-            mNegativeButtonView.setRippleColor(mBackgroundTint.withAlpha(75));
+            if (mBackgroundTint != null) {
+                mNegativeButtonView.setRippleColor(mBackgroundTint.withAlpha(75));
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

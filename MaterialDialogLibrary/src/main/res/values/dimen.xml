@@ -2,4 +2,7 @@
 <resources>
     <dimen name="radiusTop">16dp</dimen>
     <dimen name="paddingTop">16dp</dimen>
+
+    <dimen name="text_title_size">16sp</dimen>
+    <dimen name="text_message_size">14sp</dimen>
 </resources>

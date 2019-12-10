@@ -121,8 +121,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        mButtonBottomSheetDialog.setOnClickListener(this);
        mButtonAnimatedDialog.setOnClickListener(this);
        mButtonAnimatedBottomSheetDialog.setOnClickListener(this);
-
-
     }
 
     @Override

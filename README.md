@@ -1,3 +1,14 @@
+![Bintray](https://img.shields.io/bintray/v/patilshreyas/maven/com.shreyaspatil:MaterialDialog?style=flat-square)
+![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg)
+[![JavaDoc](https://img.shields.io/badge/JavaDoc-MaterialDialog-blue.svg)](https://patilshreyas.github.io/MaterialDialog-Android/docs/)
+
+![Github Followers](https://img.shields.io/github/followers/PatilShreyas?label=Follow&style=social)
+![GitHub stars](https://img.shields.io/github/stars/PatilShreyas/MaterialDialog-Android?style=social)
+![GitHub forks](https://img.shields.io/github/forks/PatilShreyas/MaterialDialog-Android?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/PatilShreyas/MaterialDialog-Android?style=social)
+![Twitter Follow](https://img.shields.io/twitter/follow/imShreyasPatil?label=Follow&style=social)
+
+
 # Material Dialogs for Android 📱
 
 📱Android Library to implement *animated*, 😍*beautiful*, 🎨*stylish* Material Dialog in android apps easily.
@@ -90,6 +101,26 @@ Setting Material Theme to app is necessary before implementing Material Dialog l
 </resources>
 ```
 These are required prerequisites to implement Material Dialog library.
+
+#### iii. Customize Dialog Theme (Optional)
+If you want to customize dialog view, you can override style in `styles.xml` as below.
+```xml
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/montserrat</item>
+
+        <!-- Customize your theme here. -->
+        <item name="material_dialog_background">#FFFFFF</item>
+        <item name="material_dialog_title_text_color">#000000</item>
+        <item name="material_dialog_message_text_color">#5F5F5F</item>
+        <item name="material_dialog_positive_button_color">@color/colorAccent</item>
+        <item name="material_dialog_positive_button_text_color">#FFFFFF</item>
+        <item name="material_dialog_negative_button_text_color">@color/colorAccent</item>
+    </style>
+```
 
 <a name="createDialogInstance"></a>
 ### Create Dialog Instance

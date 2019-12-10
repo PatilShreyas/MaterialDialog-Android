@@ -2,17 +2,20 @@ package com.shreyaspatil.MaterialDialog;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Outline;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
 /**
@@ -56,6 +59,20 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
         } else {
             dialogView.findViewById(R.id.relative_layout_dialog).setPadding(0, (int) mActivity.getResources().getDimension(R.dimen.paddingTop), 0, 0);
         }
+
+        // Expand Bottom Sheet after showing.
+        mDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                BottomSheetDialog d = (BottomSheetDialog) dialog;
+
+                FrameLayout bottomSheet = d.findViewById(com.google.android.material.R.id.design_bottom_sheet);
+
+                if (bottomSheet != null) {
+                    BottomSheetBehavior.from(bottomSheet).setState(BottomSheetBehavior.STATE_EXPANDED);
+                }
+            }
+        });
     }
 
     @Override

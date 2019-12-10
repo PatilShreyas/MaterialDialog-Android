@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
+import androidx.annotation.RestrictTo;
 import androidx.core.content.ContextCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -24,6 +25,7 @@ import com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
 import com.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public class AbstractDialog implements DialogInterface {
 
     //Constants
@@ -205,6 +207,7 @@ public class AbstractDialog implements DialogInterface {
                         R.color.material_dialog_positive_button_color);
             }
             mPositiveButtonView.setBackgroundTintList(mBackgroundTint);
+            mNegativeButtonView.setRippleColor(mBackgroundTint.withAlpha(75));
 
         } catch (Exception e) {
             e.printStackTrace();

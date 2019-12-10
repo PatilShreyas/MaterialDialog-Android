@@ -1,5 +1,6 @@
 package com.shreyaspatil.MaterialDialog;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Outline;
 import android.os.Build;
@@ -11,7 +12,6 @@ import android.view.ViewOutlineProvider;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RawRes;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.shreyaspatil.MaterialDialog.model.DialogButton;
 
@@ -22,19 +22,15 @@ import com.shreyaspatil.MaterialDialog.model.DialogButton;
  */
 public class BottomSheetMaterialDialog extends AbstractDialog {
 
-    private AppCompatActivity mActivity;
-
-    protected BottomSheetMaterialDialog(@NonNull final AppCompatActivity mActivity,
+    protected BottomSheetMaterialDialog(@NonNull final Activity mActivity,
                                         @NonNull String title,
                                         @NonNull String message,
                                         boolean mCancelable,
                                         @NonNull DialogButton mPositiveButton,
                                         @NonNull DialogButton mNegativeButton,
-                                        int mAnimationResId,
+                                        @RawRes int mAnimationResId,
                                         @NonNull String mAnimationFile) {
         super(mActivity, title, message, mCancelable, mPositiveButton, mNegativeButton, mAnimationResId, mAnimationFile);
-
-        this.mActivity = mActivity;
 
         // Init Dialog, Create Bottom Sheet Dialog
         mDialog = new BottomSheetDialog(mActivity);
@@ -58,7 +54,7 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
             });
             dialogView.setClipToOutline(true);
         } else {
-            dialogView.findViewById(R.id.relative_layout_dialog).setPadding(0, (int) mActivity.getResources().getDimension(R.dimen.paddingTop),0,0);
+            dialogView.findViewById(R.id.relative_layout_dialog).setPadding(0, (int) mActivity.getResources().getDimension(R.dimen.paddingTop), 0, 0);
         }
     }
 
@@ -71,7 +67,7 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
      * Builder for {@link BottomSheetMaterialDialog}.
      */
     public static class Builder {
-        private AppCompatActivity activity;
+        private Activity activity;
         private String title;
         private String message;
         private boolean isCancelable;
@@ -83,7 +79,7 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
         /**
          * @param activity where BottomSheet Material Dialog is to be built.
          */
-        public Builder(@NonNull AppCompatActivity activity) {
+        public Builder(@NonNull Activity activity) {
             this.activity = activity;
         }
 
@@ -117,8 +113,10 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
             return this;
         }
 
-        /** Sets the Positive Button to BottomSheet Material Dialog without icon
-         * @param name sets the name/label of button.
+        /**
+         * Sets the Positive Button to BottomSheet Material Dialog without icon
+         *
+         * @param name            sets the name/label of button.
          * @param onClickListener interface for callback event on click of button.
          * @return this, for chaining.
          */
@@ -127,9 +125,11 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
             return setPositiveButton(name, NO_ICON, onClickListener);
         }
 
-        /** Sets the Positive Button to BottomSheet Material Dialog with icon
-         * @param name sets the name/label of button.
-         * @param icon sets the resource icon for button.
+        /**
+         * Sets the Positive Button to BottomSheet Material Dialog with icon
+         *
+         * @param name            sets the name/label of button.
+         * @param icon            sets the resource icon for button.
          * @param onClickListener interface for callback event on click of button.
          * @return this, for chaining.
          */
@@ -139,8 +139,10 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
             return this;
         }
 
-        /** Sets the Negative Button to BottomSheet Material Dialog without icon.
-         * @param name sets the name/label of button.
+        /**
+         * Sets the Negative Button to BottomSheet Material Dialog without icon.
+         *
+         * @param name            sets the name/label of button.
          * @param onClickListener interface for callback event on click of button.
          * @see this, for chaining.
          */
@@ -149,9 +151,11 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
             return setNegativeButton(name, NO_ICON, onClickListener);
         }
 
-        /** Sets the Negative Button to BottomSheet Material Dialog with icon
-         * @param name sets the name/label of button.
-         * @param icon sets the resource icon for button.
+        /**
+         * Sets the Negative Button to BottomSheet Material Dialog with icon
+         *
+         * @param name            sets the name/label of button.
+         * @param icon            sets the resource icon for button.
          * @param onClickListener interface for callback event on click of button.
          * @return this, for chaining.
          */
@@ -161,7 +165,9 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
             return this;
         }
 
-        /** It sets the resource json to the {@link com.airbnb.lottie.LottieAnimationView}.
+        /**
+         * It sets the resource json to the {@link com.airbnb.lottie.LottieAnimationView}.
+         *
          * @param animationResId sets the resource to {@link com.airbnb.lottie.LottieAnimationView}.
          * @return this, for chaining.
          */
@@ -171,7 +177,9 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
             return this;
         }
 
-        /** It sets the json file to the {@link com.airbnb.lottie.LottieAnimationView} from assets.
+        /**
+         * It sets the json file to the {@link com.airbnb.lottie.LottieAnimationView} from assets.
+         *
          * @param fileName sets the file from assets to {@link com.airbnb.lottie.LottieAnimationView}.
          * @return this, for chaining.
          */
@@ -192,7 +200,7 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
 
     class BottomSheetDialog extends com.google.android.material.bottomsheet.BottomSheetDialog {
 
-        public BottomSheetDialog(@NonNull Context context) {
+        BottomSheetDialog(@NonNull Context context) {
             super(context, R.style.BottomSheetDialogTheme);
         }
     }

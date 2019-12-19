@@ -1,6 +1,7 @@
 ![Bintray](https://img.shields.io/bintray/v/patilshreyas/maven/com.shreyaspatil:MaterialDialog?style=flat-square)
 ![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg)
 [![JavaDoc](https://img.shields.io/badge/JavaDoc-MaterialDialog-blue.svg)](https://patilshreyas.github.io/MaterialDialog-Android/docs/)
+[![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23392-2CA3E6.svg?style=flat)](http://androidweekly.net/issues/issue-392)
 
 ![Github Followers](https://img.shields.io/github/followers/PatilShreyas?label=Follow&style=social)
 ![GitHub stars](https://img.shields.io/github/stars/PatilShreyas/MaterialDialog-Android?style=social)

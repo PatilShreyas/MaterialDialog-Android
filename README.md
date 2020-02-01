@@ -82,7 +82,7 @@ In `Build.gradle` of app module, include these dependencies. If you want to show
 dependencies {
 
     // Material Dialog Library
-    implementation 'com.shreyaspatil:MaterialDialog:2.0'
+    implementation 'com.shreyaspatil:MaterialDialog:2.1'
 
     // Material Design Library
     implementation 'com.google.android.material:material:1.0.0'

@@ -12,9 +12,9 @@ import android.app.Activity
  */
 fun materialDialog(
         activity: Activity,
-        block: MaterialDialog.Builder.() -> Unit
-) = MaterialDialog.Builder(activity)
-        .also(block).build()
+        builder: MaterialDialog.Builder.() -> Unit
+) : MaterialDialog = MaterialDialog.Builder(activity)
+        .apply(builder).build()
 
 /**
  * Creates BottomSheet Material Dialog with 2 buttons.
@@ -26,6 +26,6 @@ fun materialDialog(
  */
 fun bottomSheetMaterialDialog(
         activity: Activity,
-        block: BottomSheetMaterialDialog.Builder.() -> Unit
-) = BottomSheetMaterialDialog.Builder(activity)
-        .also(block).build()
+        builder: BottomSheetMaterialDialog.Builder.() -> Unit
+) : BottomSheetMaterialDialog = BottomSheetMaterialDialog.Builder(activity)
+        .apply(builder).build()

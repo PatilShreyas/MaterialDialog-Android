@@ -7,6 +7,7 @@ import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface
  * Builder for Dialog.
  */
 open class DialogBuilder() {
+
     var title: String? = null
     var message: String? = null
     var isCancelable: Boolean? = true
@@ -14,27 +15,6 @@ open class DialogBuilder() {
     protected var mNegativeButton: DialogButton? = null
     protected var animationResId: Int? = AbstractDialog.NO_ANIMATION
     protected var mAnimationFile: String? = null
-
-//    /**
-//     * @param title Sets the Title of Dialog.
-//     */
-//    fun setTitle(title: String) {
-//        mTitle = title
-//    }
-//
-//    /**
-//     * @param message Sets the Message of Dialog.
-//     */
-//    fun setMessage(message: String) {
-//        mMessage = message
-//    }
-//
-//    /**
-//     * @param isCancelable Sets cancelable property of Dialog.
-//     */
-//    fun isCancelable(isCancelable: Boolean) {
-//        cancelable = isCancelable
-//    }
 
     /** Sets the Positive Button to Dialog without icon
      * @param name sets the name/label of button.

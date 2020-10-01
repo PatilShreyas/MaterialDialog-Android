@@ -32,15 +32,19 @@
             android:layout_below="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             style="@style/MaterialDialog.Title"
-            tools:text="Title" />
+            tools:text="Title"
+            tools:visibility="visible"/>
 
         <TextView
             android:id="@+id/textView_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:layout_below="@id/textView_title"
             tools:text="Message"
+            tools:visibility="visible"
             style="@style/MaterialDialog.Message" />
 
         <LinearLayout
@@ -61,6 +65,8 @@
                 android:layout_height="wrap_content"
                 app:iconGravity="textStart"
                 tools:text="Negative"
+                tools:visibility="visible"
+                android:visibility="gone"
                 android:layout_weight="0.5" />
 
             <com.google.android.material.button.MaterialButton
@@ -69,8 +75,10 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
+                android:visibility="gone"
                 app:iconGravity="textStart"
-                tools:text="Positive" />
+                tools:text="Positive"
+                tools:visibility="visible"/>
         </LinearLayout>
 
     </RelativeLayout>

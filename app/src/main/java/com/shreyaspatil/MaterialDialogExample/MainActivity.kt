@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnShowListener, 
             title = "Delete"
             message = "Are you sure you want to delete this file?"
             isCancelable = false
-            setPositiveButton("Delete", R.drawable.ic_delete) { d, i ->
+            setPositiveButton("Delete", R.drawable.ic_delete) { dialog, which ->
                 Toast.makeText(applicationContext, "Deleted!", Toast.LENGTH_SHORT).show()
-                d.dismiss()
+                dialog.dismiss()
             }
-            setNegativeButton("Cancel", R.drawable.ic_close) { d, i ->
+            setNegativeButton("Cancel", R.drawable.ic_close) { dialog, which ->
                 Toast.makeText(applicationContext, "Cancelled!", Toast.LENGTH_SHORT).show()
-                d.dismiss()
+                dialog.dismiss()
             }
         }
 
@@ -43,13 +43,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnShowListener, 
             title = "Delete"
             message = "Are you sure you want to delete this file?"
             isCancelable = false
-            setPositiveButton("Delete", R.drawable.ic_delete) { d, i ->
+            setPositiveButton("Delete", R.drawable.ic_delete) { dialog, which ->
                 Toast.makeText(applicationContext, "Deleted!", Toast.LENGTH_SHORT).show()
-                d.dismiss()
+                dialog.dismiss()
             }
-            setNegativeButton("Cancel", R.drawable.ic_close) { d, i ->
+            setNegativeButton("Cancel", R.drawable.ic_close) { dialog, which ->
                 Toast.makeText(applicationContext, "Cancelled!", Toast.LENGTH_SHORT).show()
-                d.dismiss()
+                dialog.dismiss()
             }
         }
 
@@ -57,13 +57,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnShowListener, 
             title = "Delete"
             message = "Are you sure you want to delete this file?"
             isCancelable = false
-            setPositiveButton("Delete", R.drawable.ic_delete) { d, i ->
+            setPositiveButton("Delete", R.drawable.ic_delete) { dialog, which ->
                 Toast.makeText(applicationContext, "Deleted!", Toast.LENGTH_SHORT).show()
-                d.dismiss()
+                dialog.dismiss()
             }
-            setNegativeButton("Cancel", R.drawable.ic_close) { d, i ->
+            setNegativeButton("Cancel", R.drawable.ic_close) { dialog, which ->
                 Toast.makeText(applicationContext, "Cancelled!", Toast.LENGTH_SHORT).show()
-                d.dismiss()
+                dialog.dismiss()
             }
             setAnimation("delete_anim.json")
         }
@@ -72,22 +72,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnShowListener, 
             title = "Delete"
             message = "Are you sure you want to delete this file?"
             isCancelable = false
-            setPositiveButton("Delete", R.drawable.ic_delete) { d, i ->
+            setPositiveButton("Delete", R.drawable.ic_delete) { dialog, which ->
                 Toast.makeText(applicationContext, "Deleted!", Toast.LENGTH_SHORT).show()
-                d.dismiss()
+                dialog.dismiss()
             }
-            setNegativeButton("Cancel", R.drawable.ic_close) { d, i ->
+            setNegativeButton("Cancel", R.drawable.ic_close) { dialog, which ->
                 Toast.makeText(applicationContext, "Cancelled!", Toast.LENGTH_SHORT).show()
-                d.dismiss()
+                dialog.dismiss()
             }
             setAnimation("delete_anim.json")
         }
 
 
-        button_simple_dialog.setOnClickListener(this);
-        button_simple_bottomsheet_dialog.setOnClickListener(this);
-        button_animated_dialog.setOnClickListener(this);
-        button_animated_bottomsheet_dialog.setOnClickListener(this);
+        button_simple_dialog.setOnClickListener(this)
+        button_simple_bottomsheet_dialog.setOnClickListener(this)
+        button_animated_dialog.setOnClickListener(this)
+        button_animated_bottomsheet_dialog.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {

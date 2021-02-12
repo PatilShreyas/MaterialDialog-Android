@@ -8,6 +8,8 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.2'
+
+        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.14.1'
     }
 }
 

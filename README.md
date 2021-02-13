@@ -1,3 +1,4 @@
+![Maven Central](https://img.shields.io/maven-central/v/dev.shreyaspatil.MaterialDialog/MaterialDialog)
 ![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg)
 [![Android Weekly](https://img.shields.io/badge/Android%20Weekly-%23392-2CA3E6.svg?style=flat)](http://androidweekly.net/issues/issue-392)
 

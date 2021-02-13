@@ -1,7 +1,5 @@
 apply plugin: 'com.android.library'
 
-version = "2.1.0"
-
 android {
     compileSdkVersion 30
 
@@ -9,7 +7,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 2
-        versionName version
+        versionName VERSION_NAME
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 

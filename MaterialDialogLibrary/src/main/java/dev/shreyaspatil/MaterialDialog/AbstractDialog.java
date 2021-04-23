@@ -24,6 +24,8 @@ import dev.shreyaspatil.MaterialDialog.interfaces.OnCancelListener;
 import dev.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
 import dev.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 import dev.shreyaspatil.MaterialDialog.model.DialogButton;
+import dev.shreyaspatil.MaterialDialog.model.DialogText;
+import dev.shreyaspatil.MaterialDialog.model.TextAlignment;
 
 @SuppressWarnings("unused")
 public class AbstractDialog implements DialogInterface {
@@ -36,8 +38,8 @@ public class AbstractDialog implements DialogInterface {
 
     protected Dialog mDialog;
     protected Activity mActivity;
-    protected String title;
-    protected String message;
+    protected DialogText title;
+    protected DialogText message;
     protected boolean mCancelable;
     protected DialogButton mPositiveButton;
     protected DialogButton mNegativeButton;
@@ -45,14 +47,17 @@ public class AbstractDialog implements DialogInterface {
     protected String mAnimationFile;
     protected LottieAnimationView mAnimationView;
 
+    protected TextAlignment mTitleTextAlignment;
+    protected TextAlignment mMessageTextAlignment;
+
     protected OnDismissListener mOnDismissListener;
     protected OnCancelListener mOnCancelListener;
     protected OnShowListener mOnShowListener;
 
 
     protected AbstractDialog(@NonNull Activity mActivity,
-                             @NonNull String title,
-                             @NonNull String message,
+                             @NonNull DialogText title,
+                             @NonNull DialogText message,
                              boolean mCancelable,
                              @NonNull DialogButton mPositiveButton,
                              @NonNull DialogButton mNegativeButton,
@@ -83,7 +88,8 @@ public class AbstractDialog implements DialogInterface {
         // Set Title
         if (title != null) {
             mTitleView.setVisibility(View.VISIBLE);
-            mTitleView.setText(title);
+            mTitleView.setText(title.getText());
+            mTitleView.setTextAlignment(title.getTextAlignment().getAlignment());
         } else {
             mTitleView.setVisibility(View.GONE);
         }
@@ -91,7 +97,8 @@ public class AbstractDialog implements DialogInterface {
         // Set Message
         if (message != null) {
             mMessageView.setVisibility(View.VISIBLE);
-            mMessageView.setText(message);
+            mMessageView.setText(message.getText());
+            mMessageView.setTextAlignment(message.getTextAlignment().getAlignment());
         } else {
             mMessageView.setVisibility(View.GONE);
         }

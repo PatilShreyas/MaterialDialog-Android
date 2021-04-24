@@ -1,77 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:id="@+id/relative_layout_dialog"
-        style="@style/MaterialDialog"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animation_view"
-            android:layout_width="match_parent"
-            android:layout_height="175dp"
-            app:lottie_loop="true"
-            android:visibility="gone"
-            android:layout_alignParentTop="true"
-            android:scaleType="centerCrop"
-            app:lottie_autoPlay="true"/>
-
-        <TextView
-            android:id="@+id/textView_title"
-            android:layout_below="@id/animation_view"
+        <RelativeLayout
+            android:id="@+id/relative_layout_dialog"
+            style="@style/MaterialDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/MaterialDialog.Title"
-            tools:text="Title" />
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/textView_title"
-            tools:text="Message"
-            style="@style/MaterialDialog.Message" />
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="match_parent"
+                android:layout_height="175dp"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                tools:src="@tools:sample/backgrounds/scenic"
+                tools:visibility="visible" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_below="@+id/textView_message"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp"
-            android:weightSum="1.0">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_negative"
-                style="@style/MaterialDialog.NegativeButton"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/textView_title"
+                style="@style/MaterialDialog.Title"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:iconGravity="textStart"
-                tools:text="Negative"
-                android:layout_weight="0.5" />
+                android:layout_below="@id/animation_view"
+                tools:text="Title" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_positive"
-                style="@style/MaterialDialog.PositiveButton"
-                android:layout_width="0dp"
+            <TextView
+                android:id="@+id/textView_message"
+                style="@style/MaterialDialog.Message"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                app:iconGravity="textStart"
-                tools:text="Positive" />
-        </LinearLayout>
+                android:layout_below="@id/textView_title"
+                tools:text="Message" />
 
-    </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_message"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp"
+                android:weightSum="1.0">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_negative"
+                    style="@style/MaterialDialog.NegativeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    app:iconGravity="textStart"
+                    tools:text="Negative" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_positive"
+                    style="@style/MaterialDialog.PositiveButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    app:iconGravity="textStart"
+                    tools:text="Positive" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

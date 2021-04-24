@@ -37,6 +37,8 @@
 >    - [ Create Dialog Instance ](#createDialogInstance)
 >        - [ Material Dialog ](#createMaterialDialog)
 >        - [ Bottom Sheet Material Dialog ](#createBsMaterialDialog)
+>    - [ Text Alignment ](#textAlignment)
+>    - [ HTML formatting for Message ](#htmlFormatting)
 >    - [ Show Animations ](#showAnims)
 >        - [ Using `Resource` File ](#showAnimRes)
 >        - [ Using `Asset` File ](#showAnimFile)
@@ -190,6 +192,38 @@ As there are two types of dialogs in library. Material Dialogs are instantiated 
 ```
 
 <img align="center" src="GIFs/BottomSheetMaterialDialog.gif" width="300"/>
+
+<a name="textAlignment"></a>
+### Text Alignment
+
+Text alignment  is supported for _title_ and _message_ of a dialog. It's configurable while building a dialog.
+If it's not provided in builder, `TextAlignment.CENTER` is considered by default i.e. it'll be always aligned in a ***center***.
+
+**Following Alignment Enum Values are allowed to be used for Dialog text alignment:**
+
+- `TextAlignment.START`: Aligns text at start / left.
+- `TextAlignment.CENTER`: Aligns text at center.
+- `TextAlignment.END`: Aligns text at end / right.
+
+**Example usage:**
+
+```java
+        MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                .setTitle("Lorem Ipsum Title", TextAlignment.START)
+                .setMessage("Lorem Ipsum Message", TextAlignment.START)
+```
+
+
+<a name="htmlFormatting"></a>
+
+### HTML formatting for Message
+
+HTML span formatting is supported only for dialog's ***message***. While setting a message, you can directly provide formatted string as shown in following example.
+
+```java
+        MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                .setMessage("<b>Lorem <i>Ipsum</i></b>. Click <a href=\"https://example.com\">here</a> for more information")
+```
 
 <a name="showAnims"></a>
 ### Show Animations

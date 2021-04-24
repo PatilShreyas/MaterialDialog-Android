@@ -6,6 +6,8 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +26,11 @@ import dev.shreyaspatil.MaterialDialog.interfaces.OnCancelListener;
 import dev.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
 import dev.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 import dev.shreyaspatil.MaterialDialog.model.DialogButton;
+import dev.shreyaspatil.MaterialDialog.model.DialogText;
+import dev.shreyaspatil.MaterialDialog.model.TextAlignment;
 
 @SuppressWarnings("unused")
-public class AbstractDialog implements DialogInterface {
+public abstract class AbstractDialog implements DialogInterface {
 
     //Constants
     public static final int BUTTON_POSITIVE = 1;
@@ -36,8 +40,8 @@ public class AbstractDialog implements DialogInterface {
 
     protected Dialog mDialog;
     protected Activity mActivity;
-    protected String title;
-    protected String message;
+    protected DialogText title;
+    protected DialogText message;
     protected boolean mCancelable;
     protected DialogButton mPositiveButton;
     protected DialogButton mNegativeButton;
@@ -45,14 +49,16 @@ public class AbstractDialog implements DialogInterface {
     protected String mAnimationFile;
     protected LottieAnimationView mAnimationView;
 
+    protected TextAlignment mTitleTextAlignment;
+    protected TextAlignment mMessageTextAlignment;
+
     protected OnDismissListener mOnDismissListener;
     protected OnCancelListener mOnCancelListener;
     protected OnShowListener mOnShowListener;
 
-
     protected AbstractDialog(@NonNull Activity mActivity,
-                             @NonNull String title,
-                             @NonNull String message,
+                             @NonNull DialogText title,
+                             @NonNull DialogText message,
                              boolean mCancelable,
                              @NonNull DialogButton mPositiveButton,
                              @NonNull DialogButton mNegativeButton,
@@ -83,7 +89,8 @@ public class AbstractDialog implements DialogInterface {
         // Set Title
         if (title != null) {
             mTitleView.setVisibility(View.VISIBLE);
-            mTitleView.setText(title);
+            mTitleView.setText(title.getText());
+            mTitleView.setTextAlignment(title.getTextAlignment().getAlignment());
         } else {
             mTitleView.setVisibility(View.GONE);
         }
@@ -91,7 +98,14 @@ public class AbstractDialog implements DialogInterface {
         // Set Message
         if (message != null) {
             mMessageView.setVisibility(View.VISIBLE);
-            mMessageView.setText(message);
+            Spanned spannedMessage = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                spannedMessage = Html.fromHtml(message.getText(), Html.FROM_HTML_MODE_COMPACT);
+            } else {
+                spannedMessage = Html.fromHtml(message.getText());
+            }
+            mMessageView.setText(spannedMessage);
+            mMessageView.setTextAlignment(message.getTextAlignment().getAlignment());
         } else {
             mMessageView.setVisibility(View.GONE);
         }
@@ -328,5 +342,158 @@ public class AbstractDialog implements DialogInterface {
 
     public interface OnClickListener {
         void onClick(DialogInterface dialogInterface, int which);
+    }
+
+    /**
+     * Builder for {@link AbstractDialog}.
+     */
+    public static abstract class Builder<D extends AbstractDialog> {
+        protected final Activity activity;
+        protected DialogText title;
+        protected DialogText message;
+        protected boolean isCancelable;
+        protected DialogButton positiveButton;
+        protected DialogButton negativeButton;
+        protected int animationResId = NO_ANIMATION;
+        protected String animationFile;
+
+        /**
+         * @param activity where Material Dialog is to be built.
+         */
+        public Builder(@NonNull Activity activity) {
+            this.activity = activity;
+        }
+
+        /**
+         * @param title Sets the Title of Material Dialog with the default alignment as center.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setTitle(@NonNull String title) {
+            return setTitle(title, TextAlignment.CENTER);
+        }
+
+        /**
+         * @param title     Sets the Title of Material Dialog.
+         * @param alignment Sets the Alignment for the title.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setTitle(@NonNull String title, @NonNull TextAlignment alignment) {
+            this.title = new DialogText(title, alignment);
+            return this;
+        }
+
+        /**
+         * @param message Sets the Message of Material Dialog with the default alignment as center.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setMessage(@NonNull String message) {
+            return setMessage(message, TextAlignment.CENTER);
+        }
+
+        /**
+         * @param message   Sets the Message of Material Dialog.
+         * @param alignment Sets the Alignment for the message.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setMessage(@NonNull String message, @NonNull TextAlignment alignment) {
+            this.message = new DialogText(message, alignment);
+            return this;
+        }
+
+        /**
+         * @param isCancelable Sets cancelable property of Material Dialog.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setCancelable(boolean isCancelable) {
+            this.isCancelable = isCancelable;
+            return this;
+        }
+
+        /**
+         * Sets the Positive Button to Material Dialog without icon
+         *
+         * @param name            sets the name/label of button.
+         * @param onClickListener interface for callback event on click of button.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setPositiveButton(@NonNull String name, @NonNull OnClickListener onClickListener) {
+            return setPositiveButton(name, NO_ICON, onClickListener);
+        }
+
+        /**
+         * Sets the Positive Button to Material Dialog with icon
+         *
+         * @param name            sets the name/label of button.
+         * @param icon            sets the resource icon for button.
+         * @param onClickListener interface for callback event on click of button.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setPositiveButton(@NonNull String name, int icon, @NonNull OnClickListener onClickListener) {
+            positiveButton = new DialogButton(name, icon, onClickListener);
+            return this;
+        }
+
+        /**
+         * Sets the Negative Button to Material Dialog without icon.
+         *
+         * @param name            sets the name/label of button.
+         * @param onClickListener interface for callback event on click of button.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setNegativeButton(@NonNull String name, @NonNull OnClickListener onClickListener) {
+            return setNegativeButton(name, NO_ICON, onClickListener);
+        }
+
+        /**
+         * Sets the Negative Button to Material Dialog with icon
+         *
+         * @param name            sets the name/label of button.
+         * @param icon            sets the resource icon for button.
+         * @param onClickListener interface for callback event on click of button.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setNegativeButton(@NonNull String name, int icon, @NonNull OnClickListener onClickListener) {
+            negativeButton = new DialogButton(name, icon, onClickListener);
+            return this;
+        }
+
+        /**
+         * It sets the resource json to the {@link com.airbnb.lottie.LottieAnimationView}.
+         *
+         * @param animationResId sets the resource to {@link com.airbnb.lottie.LottieAnimationView}.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setAnimation(@RawRes int animationResId) {
+            this.animationResId = animationResId;
+            return this;
+        }
+
+        /**
+         * It sets the json file to the {@link com.airbnb.lottie.LottieAnimationView} from assets.
+         *
+         * @param fileName sets the file from assets to {@link com.airbnb.lottie.LottieAnimationView}.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setAnimation(@NonNull String fileName) {
+            this.animationFile = fileName;
+            return this;
+        }
+
+        /**
+         * Builds the dialog.
+         */
+        @NonNull
+        public abstract D build();
     }
 }

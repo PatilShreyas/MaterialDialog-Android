@@ -98,7 +98,12 @@ public abstract class AbstractDialog implements DialogInterface {
         // Set Message
         if (message != null) {
             mMessageView.setVisibility(View.VISIBLE);
-            Spanned spannedMessage = Html.fromHtml(message.getText());
+            Spanned spannedMessage = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+                spannedMessage = Html.fromHtml(message.getText(), Html.FROM_HTML_MODE_COMPACT);
+            } else {
+                spannedMessage = Html.fromHtml(message.getText());
+            }
             mMessageView.setText(spannedMessage);
             mMessageView.setTextAlignment(message.getTextAlignment().getAlignment());
         } else {

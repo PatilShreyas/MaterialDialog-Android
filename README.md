@@ -222,7 +222,7 @@ HTML span formatting is supported only for dialog's ***message***. While setting
 
 ```java
         MaterialDialog mDialog = new MaterialDialog.Builder(this)
-                .setMessage("<b>Lorem <i>Ipsum</i></b>")
+                .setMessage("<b>Lorem <i>Ipsum</i></b>. Click <a href=\"https://example.com\">here</a> for more information")
 ```
 
 <a name="showAnims"></a>

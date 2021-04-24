@@ -18,6 +18,8 @@ import androidx.annotation.RawRes;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import dev.shreyaspatil.MaterialDialog.model.DialogButton;
+import dev.shreyaspatil.MaterialDialog.model.DialogText;
+import dev.shreyaspatil.MaterialDialog.model.TextAlignment;
 
 /**
  * Creates BottomSheet Material Dialog with 2 buttons.
@@ -28,8 +30,8 @@ import dev.shreyaspatil.MaterialDialog.model.DialogButton;
 public class BottomSheetMaterialDialog extends AbstractDialog {
 
     protected BottomSheetMaterialDialog(@NonNull final Activity mActivity,
-                                        @NonNull String title,
-                                        @NonNull String message,
+                                        @NonNull DialogText title,
+                                        @NonNull DialogText message,
                                         boolean mCancelable,
                                         @NonNull DialogButton mPositiveButton,
                                         @NonNull DialogButton mNegativeButton,
@@ -87,8 +89,8 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
      */
     public static class Builder {
         private final Activity activity;
-        private String title;
-        private String message;
+        private DialogText title;
+        private DialogText message;
         private boolean isCancelable;
         private DialogButton positiveButton;
         private DialogButton negativeButton;
@@ -103,22 +105,42 @@ public class BottomSheetMaterialDialog extends AbstractDialog {
         }
 
         /**
-         * @param title Sets the Title of BottomSheet Material Dialog.
+         * @param title Sets the Title of Material Dialog with the default alignment as center.
          * @return this, for chaining.
          */
         @NonNull
         public Builder setTitle(@NonNull String title) {
-            this.title = title;
+            return setTitle(title, TextAlignment.CENTER);
+        }
+
+        /**
+         * @param title     Sets the Title of Material Dialog.
+         * @param alignment Sets the Alignment for the title.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder setTitle(@NonNull String title, @NonNull TextAlignment alignment) {
+            this.title = new DialogText(title, alignment);
             return this;
         }
 
         /**
-         * @param message Sets the Message of BottomSheet Material Dialog.
+         * @param message Sets the Message of Material Dialog with the default alignment as center.
          * @return this, for chaining.
          */
         @NonNull
         public Builder setMessage(@NonNull String message) {
-            this.message = message;
+            return setMessage(message, TextAlignment.CENTER);
+        }
+
+        /**
+         * @param message   Sets the Message of Material Dialog.
+         * @param alignment Sets the Alignment for the message.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder setMessage(@NonNull String message, @NonNull TextAlignment alignment) {
+            this.message = new DialogText(message, alignment);
             return this;
         }
 

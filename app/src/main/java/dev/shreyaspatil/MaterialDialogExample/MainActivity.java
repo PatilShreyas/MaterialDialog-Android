@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Simple Material Dialog
         mSimpleDialog = new MaterialDialog.Builder(this)
                 .setTitle("Delete?", TextAlignment.START)
-                .setMessage("Are you sure want to delete this file?", TextAlignment.START)
+                .setMessage("Are you sure want to <i>delete this file</i>?", TextAlignment.START)
                 .setCancelable(false)
                 .setPositiveButton("Delete", R.drawable.ic_delete, new MaterialDialog.OnClickListener() {
                     @Override
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Simple BottomSheet Material Dialog
         mSimpleBottomSheetDialog = new BottomSheetMaterialDialog.Builder(this)
                 .setTitle("Delete?", TextAlignment.CENTER)
-                .setMessage("Are you sure want to delete this file?", TextAlignment.CENTER)
+                .setMessage("Are you sure want to <i>delete this file</i>?", TextAlignment.CENTER)
                 .setCancelable(false)
                 .setPositiveButton("Delete", R.drawable.ic_delete, new BottomSheetMaterialDialog.OnClickListener() {
                     @Override
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Animated Simple Material Dialog
         mAnimatedDialog = new MaterialDialog.Builder(this)
                 .setTitle("Delete?")
-                .setMessage("Are you sure want to delete this file?")
+                .setMessage("Are you sure want to <i>delete this file</i>?")
                 .setCancelable(false)
                 .setPositiveButton("Delete", R.drawable.ic_delete, new MaterialDialog.OnClickListener() {
                     @Override
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Animated BottomSheet Material Dialog
         mAnimatedBottomSheetDialog = new BottomSheetMaterialDialog.Builder(this)
                 .setTitle("Delete?")
-                .setMessage("Are you sure want to delete this file?")
+                .setMessage("Are you sure want to <i>delete this file</i>?")
                 .setCancelable(false)
                 .setPositiveButton("Delete", R.drawable.ic_delete, new BottomSheetMaterialDialog.OnClickListener() {
                     @Override

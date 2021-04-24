@@ -6,6 +6,8 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,7 +98,8 @@ public abstract class AbstractDialog implements DialogInterface {
         // Set Message
         if (message != null) {
             mMessageView.setVisibility(View.VISIBLE);
-            mMessageView.setText(message.getText());
+            Spanned spannedMessage = Html.fromHtml(message.getText());
+            mMessageView.setText(spannedMessage);
             mMessageView.setTextAlignment(message.getTextAlignment().getAlignment());
         } else {
             mMessageView.setVisibility(View.GONE);

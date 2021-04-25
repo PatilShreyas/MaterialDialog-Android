@@ -1,10 +1,10 @@
 package dev.shreyaspatil.MaterialDialog.model;
 
-public class DialogText {
+public class DialogTitle {
     private final String text;
     private final TextAlignment textAlignment;
 
-    public DialogText(String text, TextAlignment textAlignment) {
+    public DialogTitle(String text, TextAlignment textAlignment) {
         this.text = text;
         this.textAlignment = textAlignment;
     }

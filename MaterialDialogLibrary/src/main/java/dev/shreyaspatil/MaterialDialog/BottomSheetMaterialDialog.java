@@ -18,7 +18,8 @@ import androidx.annotation.RawRes;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import dev.shreyaspatil.MaterialDialog.model.DialogButton;
-import dev.shreyaspatil.MaterialDialog.model.DialogText;
+import dev.shreyaspatil.MaterialDialog.model.DialogMessage;
+import dev.shreyaspatil.MaterialDialog.model.DialogTitle;
 
 /**
  * Creates BottomSheet Material Dialog with 2 buttons.
@@ -29,8 +30,8 @@ import dev.shreyaspatil.MaterialDialog.model.DialogText;
 public final class BottomSheetMaterialDialog extends AbstractDialog {
 
     private BottomSheetMaterialDialog(@NonNull final Activity mActivity,
-                                      @NonNull DialogText title,
-                                      @NonNull DialogText message,
+                                      @NonNull DialogTitle title,
+                                      @NonNull DialogMessage message,
                                       boolean mCancelable,
                                       @NonNull DialogButton mPositiveButton,
                                       @NonNull DialogButton mNegativeButton,

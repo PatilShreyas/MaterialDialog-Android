@@ -91,7 +91,7 @@ repositories {
 dependencies {
 
     // Material Dialog Library
-    implementation 'dev.shreyaspatil.MaterialDialog:MaterialDialog:2.1.1'
+    implementation 'dev.shreyaspatil.MaterialDialog:MaterialDialog:2.2.2'
 
     // Material Design Library
     implementation 'com.google.android.material:material:1.0.0'

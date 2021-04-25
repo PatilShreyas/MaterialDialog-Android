@@ -218,11 +218,11 @@ If it's not provided in builder, `TextAlignment.CENTER` is considered by default
 
 ### HTML formatting for Message
 
-HTML span formatting is supported only for dialog's ***message***. While setting a message, you can directly provide formatted string as shown in following example.
+HTML spanned text is supported only for dialog's ***message***. While setting a message, you can directly provide `Spanned` instance as shown in following example.
 
 ```java
         MaterialDialog mDialog = new MaterialDialog.Builder(this)
-                .setMessage("<b>Lorem <i>Ipsum</i></b>. Click <a href=\"https://example.com\">here</a> for more information")
+                .setMessage(Html.fromText("<b>Lorem <i>Ipsum</i></b>. <br> Click <a href=\"https://example.com\">here</a> for more information"))
 ```
 
 <a name="showAnims"></a>
@@ -256,9 +256,7 @@ Prototype :
 Resource file should be passed to method. e.g. `R.raw.delete_anim`. 
 ```java
         MaterialButton mDialog = new MaterialDialog.Builder(this)
-                // Other Methods to create Dialog........               
-                .setAnimation(R.raw.delete_anim)                
-                //...
+                .setAnimation(R.raw.delete_anim)
 ```
 <a name="showAnimFile"></a>
 #### ii. Using `Asset` File

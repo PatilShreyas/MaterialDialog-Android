@@ -6,7 +6,6 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Build;
-import android.text.Html;
 import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +25,8 @@ import dev.shreyaspatil.MaterialDialog.interfaces.OnCancelListener;
 import dev.shreyaspatil.MaterialDialog.interfaces.OnDismissListener;
 import dev.shreyaspatil.MaterialDialog.interfaces.OnShowListener;
 import dev.shreyaspatil.MaterialDialog.model.DialogButton;
-import dev.shreyaspatil.MaterialDialog.model.DialogText;
+import dev.shreyaspatil.MaterialDialog.model.DialogMessage;
+import dev.shreyaspatil.MaterialDialog.model.DialogTitle;
 import dev.shreyaspatil.MaterialDialog.model.TextAlignment;
 
 @SuppressWarnings("unused")
@@ -40,8 +40,8 @@ public abstract class AbstractDialog implements DialogInterface {
 
     protected Dialog mDialog;
     protected Activity mActivity;
-    protected DialogText title;
-    protected DialogText message;
+    protected DialogTitle title;
+    protected DialogMessage message;
     protected boolean mCancelable;
     protected DialogButton mPositiveButton;
     protected DialogButton mNegativeButton;
@@ -57,8 +57,8 @@ public abstract class AbstractDialog implements DialogInterface {
     protected OnShowListener mOnShowListener;
 
     protected AbstractDialog(@NonNull Activity mActivity,
-                             @NonNull DialogText title,
-                             @NonNull DialogText message,
+                             @NonNull DialogTitle title,
+                             @NonNull DialogMessage message,
                              boolean mCancelable,
                              @NonNull DialogButton mPositiveButton,
                              @NonNull DialogButton mNegativeButton,
@@ -98,13 +98,8 @@ public abstract class AbstractDialog implements DialogInterface {
         // Set Message
         if (message != null) {
             mMessageView.setVisibility(View.VISIBLE);
-            Spanned spannedMessage = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                spannedMessage = Html.fromHtml(message.getText(), Html.FROM_HTML_MODE_COMPACT);
-            } else {
-                spannedMessage = Html.fromHtml(message.getText());
-            }
-            mMessageView.setText(spannedMessage);
+
+            mMessageView.setText(message.getText());
             mMessageView.setTextAlignment(message.getTextAlignment().getAlignment());
         } else {
             mMessageView.setVisibility(View.GONE);
@@ -349,8 +344,8 @@ public abstract class AbstractDialog implements DialogInterface {
      */
     public static abstract class Builder<D extends AbstractDialog> {
         protected final Activity activity;
-        protected DialogText title;
-        protected DialogText message;
+        protected DialogTitle title;
+        protected DialogMessage message;
         protected boolean isCancelable;
         protected DialogButton positiveButton;
         protected DialogButton negativeButton;
@@ -380,12 +375,12 @@ public abstract class AbstractDialog implements DialogInterface {
          */
         @NonNull
         public Builder<D> setTitle(@NonNull String title, @NonNull TextAlignment alignment) {
-            this.title = new DialogText(title, alignment);
+            this.title = new DialogTitle(title, alignment);
             return this;
         }
 
         /**
-         * @param message Sets the Message of Material Dialog with the default alignment as center.
+         * @param message Sets the plain text Message of Material Dialog with the default alignment as center.
          * @return this, for chaining.
          */
         @NonNull
@@ -394,13 +389,33 @@ public abstract class AbstractDialog implements DialogInterface {
         }
 
         /**
-         * @param message   Sets the Message of Material Dialog.
+         * @param message   Sets the plain text Message of Material Dialog.
          * @param alignment Sets the Alignment for the message.
          * @return this, for chaining.
          */
         @NonNull
         public Builder<D> setMessage(@NonNull String message, @NonNull TextAlignment alignment) {
-            this.message = new DialogText(message, alignment);
+            this.message = DialogMessage.text(message, alignment);
+            return this;
+        }
+
+        /**
+         * @param message Sets the spanned text Message of Material Dialog with the default alignment as center.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setMessage(@NonNull Spanned message) {
+            return setMessage(message, TextAlignment.CENTER);
+        }
+
+        /**
+         * @param message   Sets the spanned text Message of Material Dialog.
+         * @param alignment Sets the Alignment for the message.
+         * @return this, for chaining.
+         */
+        @NonNull
+        public Builder<D> setMessage(@NonNull Spanned message, @NonNull TextAlignment alignment) {
+            this.message = DialogMessage.spanned(message, alignment);
             return this;
         }
 

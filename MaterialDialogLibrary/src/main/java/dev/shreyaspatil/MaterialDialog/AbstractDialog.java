@@ -1,5 +1,6 @@
 package dev.shreyaspatil.MaterialDialog;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.res.ColorStateList;
@@ -74,6 +75,7 @@ public abstract class AbstractDialog implements DialogInterface {
         this.mAnimationFile = mAnimationFile;
     }
 
+    @SuppressLint("WrongConstant")
     protected View createView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
         // Inflate and set the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
@@ -113,12 +115,9 @@ public abstract class AbstractDialog implements DialogInterface {
                 mPositiveButtonView.setIcon(ContextCompat.getDrawable(mActivity, mPositiveButton.getIcon()));
             }
 
-            mPositiveButtonView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mPositiveButton.getOnClickListener().onClick(AbstractDialog.this, BUTTON_POSITIVE);
-                }
-            });
+            mPositiveButtonView.setOnClickListener(view ->
+                    mPositiveButton.getOnClickListener().onClick(AbstractDialog.this, BUTTON_POSITIVE)
+            );
         } else {
             mPositiveButtonView.setVisibility(View.INVISIBLE);
         }
@@ -131,12 +130,9 @@ public abstract class AbstractDialog implements DialogInterface {
                 mNegativeButtonView.setIcon(ContextCompat.getDrawable(mActivity, mNegativeButton.getIcon()));
             }
 
-            mNegativeButtonView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mNegativeButton.getOnClickListener().onClick(AbstractDialog.this, BUTTON_NEGATIVE);
-                }
-            });
+            mNegativeButtonView.setOnClickListener(view ->
+                    mNegativeButton.getOnClickListener().onClick(AbstractDialog.this, BUTTON_NEGATIVE)
+            );
         } else {
             mNegativeButtonView.setVisibility(View.INVISIBLE);
         }
@@ -270,12 +266,7 @@ public abstract class AbstractDialog implements DialogInterface {
     public void setOnShowListener(@NonNull final OnShowListener onShowListener) {
         this.mOnShowListener = onShowListener;
 
-        mDialog.setOnShowListener(new android.content.DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(android.content.DialogInterface dialogInterface) {
-                showCallback();
-            }
-        });
+        mDialog.setOnShowListener(dialogInterface -> showCallback());
     }
 
     /**
@@ -284,12 +275,7 @@ public abstract class AbstractDialog implements DialogInterface {
     public void setOnCancelListener(@NonNull final OnCancelListener onCancelListener) {
         this.mOnCancelListener = onCancelListener;
 
-        mDialog.setOnCancelListener(new android.content.DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(android.content.DialogInterface dialogInterface) {
-                cancelCallback();
-            }
-        });
+        mDialog.setOnCancelListener(dialogInterface -> cancelCallback());
     }
 
     /**
@@ -298,12 +284,7 @@ public abstract class AbstractDialog implements DialogInterface {
     public void setOnDismissListener(@NonNull final OnDismissListener onDismissListener) {
         this.mOnDismissListener = onDismissListener;
 
-        mDialog.setOnDismissListener(new android.content.DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(android.content.DialogInterface dialogInterface) {
-                dismissCallback();
-            }
-        });
+        mDialog.setOnDismissListener(dialogInterface -> dismissCallback());
     }
 
     /**

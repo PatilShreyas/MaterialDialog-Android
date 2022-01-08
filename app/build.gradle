@@ -29,13 +29,13 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
 
     // Material Dialog Library
-    implementation 'dev.shreyaspatil.MaterialDialog:MaterialDialog:2.2.2'
+    implementation 'dev.shreyaspatil.MaterialDialog:MaterialDialog:2.2.3'
 
     // Material Design Library
     implementation 'com.google.android.material:material:1.4.0'
 
     // Lottie Animation Library
-    implementation 'com.airbnb.android:lottie:3.7.0'
+    implementation 'com.airbnb.android:lottie:4.2.2'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.4.0'
